@@ -1,5 +1,4 @@
-module.export = {
+module.exports = {
     aa : '폴리',
-    bb : '누구보다 빠르죠'
-    
+    bb : '용감하고 빠르죠'
 }

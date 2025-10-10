@@ -1,5 +1,4 @@
-module.export = {
+module.exports={
     v1:true,
-    v2:5,
-    v3:
+    v2:5
 }
