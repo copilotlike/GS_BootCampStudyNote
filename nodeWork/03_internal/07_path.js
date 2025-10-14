@@ -25,19 +25,12 @@ console.log('파일 절대 경로 ----------------')
 console.log(`isAbsolute('D:\\public') : ${pp.isAbsolute('D:\\public')}`)    //절대경로 - true
 console.log(`isAbsolute('wwee\\rrt') : ${pp.isAbsolute('wwee\\rrt')}`)      //상대경로 - false
 
-
-
-
-
 console.log('파일 이동 경로 ----------------')
 //    ./  : 현재폴더    ../ : 상위폴더
 console.log(`relative('D:\\public\\qqq\\www', 'D:\\public') : 
     ${pp.relative('D:\\public\\qqq\\www', 'D:\\public')}`)  // 'D:\\public\\qqq\\www'=>'D:\\public'이동방법 :  ..\..
 console.log(`relative('D:\\public\\qqq\\www', 'D:\\public\\aaa\\bbb') : 
     ${pp.relative('D:\\public\\qqq\\www', 'D:\\public\\aaa\\bbb')}`)  // 이동방법 :  ..\..\aaa\bbb
-
-
-
 
 console.log(`join('D:\\public\\aaa\\bbb', '../../','/ccc/ddd','../','eee','vvv','.jpg') : 
     ${pp.join('D:\\public\\aaa\\bbb', '../../','/ccc/ddd','../','eee','vvv.jpg')}`)    
@@ -49,7 +42,7 @@ console.log(`resolve('D:\\public\\aaa\\bbb', '../../','vvv.jpg') :
 console.log(`join('/aa', '/bb','/cc') : ${pp.join('/aa', '/bb','/cc')}`)    //경로합치기 :  \aa\bb\cc
 console.log(`join('D:\\', 'bb','cc') : ${pp.join('D:\\', 'bb','cc')}`)      //경로합치기 :  D:\bb\cc
 console.log(`resolve('/aa', '/bb','/cc') : ${pp.resolve('/aa', '/bb', '/cc')}`) //절대경로 :  D:\cc  --> '/aa', '/bb' 생략됨
-                                                    // /aa --> /  : root 로 인지(D:\) -->  마지막의 /cc 가 root 에서 시작으로 인지
+                                                  // /aa --> /  : root 로 인지(D:\) -->  마지막의 /cc 가 root 에서 시작으로 인지
 console.log(`resolve('D:\\', 'bb','cc') : ${pp.resolve('D:\\', 'bb', 'cc')}`) //절대경로 :  D:\bb\cc
 
 /*
@@ -60,10 +53,8 @@ console.log(`resolve('D:\\', 'bb','cc') : ${pp.resolve('D:\\', 'bb', 'cc')}`) //
 
 */
 
-//내가 한거
-const relativePath = pp.relative(pp.dirname(fName), 'D:\\public\\aaa\\bbb\\ccc') + pp.basename(fName);
-console.log(`상대 경로: ${relativePath}`);
-
-//강사님꺼.
-const fName2 = __file
-
+const fName2 = __filename
+console.log(`${pp.format(
+                {dir:pp.relative(fName2, 'D:\\public\\aaa\\bbb\\ccc'), 
+                base:pp.basename(fName2)}
+            )}`)
