@@ -1,111 +1,19 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
 
-const basePath = path.join(__dirname, '..', 'fff');
-
-/*
-농구 팀 파일을 3개 구성하고
-각 선수들을 포지션으로 배열을 구성하여 출력하세요
-*/
-
-fs.readFile(path.join(basePath, 'buksan.txt'),(err,data)=>{
+fs.readFile('../fff/aaa.txt',(err,data)=>{
     if(err){
         console.log('파일 에러')
     }else{
         //console.log(data)
         //console.log(data.toString())
-        let arr = data.toString().split('\r\n');
+        let arr = data.toString().split('\r\n')
+        //console.log(arr)
         for (const i in arr) {
-            console.log(`${i} : ${arr[i]}`);
-            let parts = arr[i].split(',');
-            let position = parts[2];
-            let lastChar = position.charAt(position.length - 1);
-            if (lastChar === 'c') {
-                console.log('center');
-            } else if (lastChar === 'f') {
-                console.log('forward');
-            } else if (lastChar === 'g') {
-                console.log('guard');
-            }
-        }
-    }
-
-});
-
-
-fs.readFile(path.join(basePath, 'haenam.txt'), (err, data) => {
-    if (err) {
-        console.log('파일 에러');
-    } else {
-        let arr = data.toString().split('\r\n');
-        for (const i in arr) {
-            console.log(`${i} : ${arr[i]}`);
-            let parts = arr[i].split(',');
-            let position = parts[2];
-            let lastChar = position.charAt(position.length - 1);
-            if (lastChar === 'c') {
-                console.log('center');
-            } else if (lastChar === 'f') {
-                console.log('forward');
-            } else if (lastChar === 'g') {
-                console.log('guard');
-            }
-        }
-    }
-});
-
-fs.readFile(path.join(basePath, 'neungnam.txt'),(err,data)=>{
-    if(err){
-        console.log('파일 에러')
-    }else{
-        //console.log(data)
-        //console.log(data.toString())
-        let arr = data.toString().split('\r\n');
-        for (const i in arr) {
-            console.log(`${i} : ${arr[i]}`);
-            let parts = arr[i].split(',');
-            let position = parts[2];
-            let lastChar = position.charAt(position.length - 1);
-            if (lastChar === 'c') {
-                console.log('center');
-            } else if (lastChar === 'f') {
-                console.log('forward');
-            } else if (lastChar === 'g') {
-                console.log('guard');
-            }
-        }
-    }
-});
-
-
-
-
-// const fs = require('fs')
-
-// fs.readFile('../fff/aaa.txt',(err,data)=>{
-//     if(err){
-//         console.log('파일 에러')
-//     }else{
-//         //console.log(data)
-//         //console.log(data.toString())
-//         let arr = data.toString().split('\r\n')
-//         //console.log(arr)
-//         for (const i in arr) {
             
-//             console.log(`${i} : ${arr[i]}`)
-//             let a = charAt(str.length -1)
-//             if (a==='c') {
-//                 console.log('center')
-//             }else if (a === 'f') {
-//                 console.log('forward');
-//             }else if (a==='g'){
-//                 console.log('gard');
-//             }
-            
-//             }
-//         }
-//     }
-// )
+            console.log(`${i} : ${arr[i]}`)
+        }
+    }
+})
 
 /*
 
@@ -130,3 +38,4 @@ fs.readFile(path.join(basePath, 'neungnam.txt'),(err,data)=>{
 7,윤대협,sf
 
 */
+

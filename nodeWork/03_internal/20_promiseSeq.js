@@ -1,15 +1,25 @@
-//비동기로 순서대로 작업실행
+// promises 순서대로 작업실행
+console.log('시작')
+const fs = require('fs')
 
-console.log('시작');
-const fs = require('fs');
+//promises : 비동기함수 실행 후 리턴을 객체로  받음
+// 리턴 객체의 then(),  catch() 로 후속작업함
+let rr1 = fs.promises.readFile('../fff/bbb.txt')
 
-// callback : 함수내에서 함수작업 종료 후 후속작업을 함수로 처리
-// let data = readFile;
-fs.readFile('../fff/bbb.txt',(err,data)=>{
-    console.log(1,data.toString());
-});
+let rr2 = rr1.then((data)=>{ 
+    console.log(1,data.toString())  
+    return fs.promises.readFile('../fff/bbb.txt')
+})
 
-
-
-
-console.log('끝.');
+rr2.then((data)=>{ 
+    console.log(2,data.toString())  
+    return fs.promises.readFile('../fff/bbb.txt')
+})
+.then((data)=>{ 
+    console.log(3,data.toString())  
+    return fs.promises.readFile('../fff/bbb.txt')
+})
+.then((data)=>{ 
+    console.log(4,data.toString())  
+    console.log('끝')
+})
