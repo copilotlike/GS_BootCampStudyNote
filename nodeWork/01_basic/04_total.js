@@ -3,7 +3,6 @@
 
 //모듈로 사용하는 것이 아닌 페이지 결합으로 사용됨
 require('./03_func')  //작성된 실행구문이 동작함
-
 /*
 fn_1() 시작
          fn_2() 시작
@@ -12,31 +11,21 @@ fn_1() 시작
          fn_2() 끝
 fn_1() 끝
 */
-
-
-
-let ff5 = require('./05_mm')  
-console.log(ff5)
-/*
+let ff5 = require('./05_mm')  /*
                                 const aaa = '정우성'
                                 module.exports = aaa
                                 을 받아와 ff5 에 대입
                                 ff5 = '정우성'
 */
-
-
+console.log(ff5)
 console.log(require('./06_nn'))
-//123.456  /// 상수 1개만 내보내기
-
 let ff7 = require('./07_oo')
-console.log(ff7)
 /*
 module.exports = 123.456  
 module.exports = '아기상어'
 module.exports = '엄마상어'  /// 마지막 1개만 내보냄
 */
-
-
+console.log(ff7)
 let ff8 = require('./08_pp')
 console.log(ff8)
 console.log(ff8.a)
@@ -71,3 +60,4 @@ ff9.fn_3()
     
 
 */
+

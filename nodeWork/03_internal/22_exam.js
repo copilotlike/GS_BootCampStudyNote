@@ -1,51 +1,34 @@
-/*
-fff/exam.txt
-정우성,77,78,79
-정좌성,97,98,99
-정남성,67,68,69
-정중성,87,88,89
+const fs = require('fs').promises
+const iconv = require('iconv-lite')
+// npm i iconv-lite 필요
 
-파일내용을 가져와
-fff/examRes.txt 를 생성하세요
-이름,국어,영어,수학,총점,평균
-정우성,77,78,79,?,?
-정좌성,97,98,99,?,?
-정남성,67,68,69,?,?
-정중성,87,88,89,?,?
-*/
+function stCalc(st){
+    let tot = 0
+    for(let j of st.split(',').slice(1)){
+        tot += eval(j)
+    }
+    return st+','+tot+','+parseInt(tot/3)
+}
 
-const fs = require('fs');
-
-fs.readFile('./fff/exam.txt', 'UTF8', (err, data) => {
-    if (err) {
-        console.log('파일 에러:', err);
+fs.readFile('../fff/exam.txt').then((data)=>{
+    let ttt = '이름,국어,영어,수학,총점,평균\r\n'
+    for (const dd of data.toString().split('\r\n')) {
+        ttt+=stCalc(dd)+"\n"
     }
 
-    let lines = data.trim().split('\n');
-    console.log(lines);
-    let result = [];
+    //쓰기
+    fs.writeFile('../fff/examRes.csv',ttt)
 
-    for (let line of lines) {
-        let [name, kor, eng, math] = line.split(',');
-        let total = eval(kor)+ eval(eng)+ eval(math);
-        console.log(total);;
-        let avg = (total / 3).toFixed(1);
-        console.log(avg);
-        result.push(`${name},${kor},${eng},${math},${total},${avg}`);
-    }
+    // 쓰기 인코딩 처리
+    //fs.writeFile('../fff/examRes.csv',ttt,{encoding:'utf-8'})
+    //에러발생 : euc-kr을 모름
+    //fs.writeFile('../fff/examRes.csv',ttt,{encoding:'euc-kr'})
 
-버퍼 1kb 단위로 나눠서 사용해여.
-
+    //euc-kr 적용하려면 iconv-lite 필요
+    //const enTTT = iconv.encode(ttt, 'euc-kr')
+    //인코딩 한 내용을 쓰기한다
+    //fs.writeFile('../fff/examRes.csv',enTTT)
+})
 
 
 
-
-
-    fs.writeFile('./fff/examRes.txt', result.join('\n'), 'utf8', (err) => {
-        if (err) {
-            console.log('writeFile 에러발생:', err);
-        } else {
-            console.log('txt 생성 완료');
-        }
-    });
-});
