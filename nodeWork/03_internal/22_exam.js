@@ -16,7 +16,7 @@ fff/examRes.txt 를 생성하세요
 
 const fs = require('fs');
 
-fs.readFile('./fff/exam.txt', (err, data) => {
+fs.readFile('./fff/exam.txt', 'UTF8', (err, data) => {
     if (err) {
         console.log('파일 에러:', err);
     }
@@ -27,10 +27,15 @@ fs.readFile('./fff/exam.txt', (err, data) => {
 
     for (let line of lines) {
         let [name, kor, eng, math] = line.split(',');
-        let total = Number(kor+eng+math);
-        let avg = (total / 3).toFixed(2);
+        let total = eval(kor)+ eval(eng)+ eval(math);
+        console.log(total);;
+        let avg = (total / 3).toFixed(1);
+        console.log(avg);
         result.push(`${name},${kor},${eng},${math},${total},${avg}`);
     }
+
+버퍼 1kb 단위로 나눠서 사용해여.
+
 
 
 
