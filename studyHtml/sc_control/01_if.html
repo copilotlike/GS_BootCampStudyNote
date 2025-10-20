@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_if</title>
+</head>
+<body>
+    <h1>01_if</h1>
+    <script>
+        if(true){
+            document.write("참이지롱 1 <br/>")
+            document.write("참이지롱 1 <br/>")
+            document.write("참이지롱 1 <br/>")
+        }
+
+        document.write("if 종료 -----------1  <br/>")
+         if(false) // {}  없을 경우 이하 1개의 종속 명령구문 필수
+            document.write("참이지롱 2 <br/>")  // 이 명령구문만 if문에 종속
+
+
+        document.write("참이지롱 2 <br/>")  //if 문과 상관없음
+        document.write("참이지롱 2 <br/>")
+        document.write("if 종료 -----------2  <br/>")
+
+        if(false){      //머리
+            document.write("if~else 참이지롱1<br/>")
+        }else{          //꼬리 (단독사용 및 순서 변경 불가)
+            document.write("if~else 거짓부렁1<br/>")
+        }
+
+        document.write("if~else 종료 -----------1  <br/>")
+        // else{ 단독사용불가
+        //     document.write("if~else 거짓부렁1<br/>")
+        // }
+        // if(false){
+        //     document.write("if~else 참이지롱1<br/>")
+        // }
+
+        var jum = 58
+        if(jum >=80){
+            document.write("우수 2 <br/>")
+        }else{          
+            document.write("미달 2<br/>")
+        }
+        document.write("if~else 종료 -----------2  <br/>")
+
+        if(jum >=80){
+            document.write("우수 3 <br/>")
+        }
+
+
+
+
+        if(jum >=60){
+            document.write("정상 3 <br/>")
+        }
+        else{          
+            document.write("미달 3<br/>")
+        }
+        document.write("if~else 종료 -----------3  <br/>")
+
+        // 점층 구조로 작성해야 함
+        //  80 > 60 > 40 
+        if(jum >=80){                   //머리
+            document.write("우수 4 <br/>")
+        }
+        // else if(jum >=40){
+        //     document.write("정상 4 <br/>")
+        // }
+        else if(jum >=60){              //몸통
+            document.write("양호 4 <br/>")
+        }
+         else if(jum >=40){              //몸통
+            document.write("정상 4 <br/>")
+        }
+        else{                            //꼬리
+            document.write("미달 4<br/>")
+        }
+        document.write("if~else if~else 종료 -----------4  <br/>")
+        // else if(true){
+        //     document.write("양호 4 <br/>")
+        // }if(jum >=80){
+        //     document.write("우수 4 <br/>")
+        // }
+
+        // if(jum >=80){
+        //     document.write("우수 4 <br/>")
+        // }
+        // else if(jum >=60){
+        //     document.write("양호 4 <br/>")
+        // }
+        // else{          
+        //     document.write("미달 4<br/>")
+        // }
+        // else if(jum >=40){
+        //     document.write("정상 4 <br/>")
+        // }
+
+
+        if(jum >=80){                   //머리
+            document.write("우수 5 <br/>")
+        }
+        else if(jum >=60){              //몸통
+            if(jum%2==0){               //중첩 if 문 가능
+                document.write("짝수 - ")    
+            }else{
+                document.write("홀수 - ")    
+            }
+            document.write("양호 5 <br/>")
+        }
+         else if(jum >=40){              //몸통
+            document.write("정상 5 <br/>")
+        }
+
+        document.write("if~else if~else 종료 -----------5  <br/>")
+    </script>
+</body>
+</html>
+<!--
+
+-->

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_keyOrder</title>
+</head>
+<body>
+    <h1>06_keyOrder</h1>
+    <script>
+        const menu = [  "김치찌개","된장찌개","부대찌개","된장찌개","부대찌개","된장찌개","고추장찌개",
+                        "부대찌개","부대찌개","된장찌개","고추장찌개","고추장찌개","된장찌개","된장찌개"
+                        ,"된장찌개","된장찌개"]
+        let res = {}
+
+        for (const mm of menu) {
+            console.log(mm)
+            // 여기서 mm은 김치찌개 , 된장찌개의 key 값을 의미함.
+            
+            let vv = 1  //등장횟수 계산
+
+            if(mm in res){ //mm:"된장찌개"같은 키 값이 res에 있으면  vv값 올림.
+                vv += res[mm]
+            }
+
+            res[mm] = vv
+            // 올린 vv 값을 res of value에 넣음.
+        }
+
+        for (const key in res) {
+            document.write(`${key} : ${res[key]} <br/>`)
+        }
+        // 값 출력
+    </script>
+</body>
+</html>

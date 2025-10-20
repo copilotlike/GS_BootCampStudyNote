@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_gradient_drop</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 1200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background-image: url('../fff/family9.JPG');
+            background-position: -50px -200px;
+            margin: 10px;
+            position: relative;
+        }
+        .wrapper > div{
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            float: left;
+        }
+        .grad > div:nth-child(1){
+            
+            background: linear-gradient(
+             to right, 
+             #fcecfc 0%,
+             #fba6e1 50%,
+             #fd89d7 51%,
+             #ff7cd8 100%); 
+
+        }
+        .grad > div:nth-child(2){
+            background: linear-gradient(
+                to bottom, 
+                #fcecfc 0%,#fba6e1 50%,#fd89d7 51%,#ff7cd8 100%);
+
+        }
+
+        .grad > div:nth-child(3){
+            background: linear-gradient(
+                60deg, 
+            #fcecfc 0%,#fba6e1 50%,#fd89d7 51%,#ff7cd8 100%); 
+
+        }
+        .grad > div:nth-child(4){
+            background: radial-gradient(
+                ellipse at center, 
+                #fcecfc 0%,#fba6e1 50%,#fd89d7 51%,#ff7cd8 100%); 
+
+        }
+        .grad > div:nth-child(5){
+           background: linear-gradient(
+            45deg,
+             #ff0000 0%,
+             #ffa500 21%,
+             #f6ff00 34%,
+             #00ff21 48%,
+             #0000ff 68%,
+             #5f0cb7 83%,
+             #ff7cf6 100%); 
+
+        }
+
+        .grad > div:nth-child(6){
+            background: linear-gradient(
+                45deg, 
+                #ff0000 0%,#ff0000 23%,
+                #f6ff00 23%,#f6ff00 68%,
+                #0000ff 68%,#0000ff 100%); 
+
+        }
+        .grad > div:nth-child(7){
+            background: linear-gradient(
+                45deg, 
+                rgba(255,0,0,0) 0%,
+                rgba(255,148,0,0.28) 28%,
+                rgba(246,255,0,0.51) 51%,
+                rgba(4,255,0,0.75) 75%,
+                rgba(0,0,255,1) 100%);  
+        }
+
+        .grad > div:nth-child(8){
+            background: linear-gradient(45deg, 
+            rgba(255,0,0,1) 0%,
+            rgba(255,63,0,1) 12%,
+            rgba(255,95,0,0) 18%,
+            rgba(255,127,0,0) 24%,
+            rgba(255,148,0,1) 28%,
+            rgba(251,195,0,1) 38%,
+            rgba(249,218,0,0) 43%,
+            rgba(246,250,0,0) 50%,
+            rgba(246,255,0,0.2) 51%,
+            rgba(206,255,0,1) 55%,
+            rgba(125,255,0,1) 63%,
+            rgba(75,255,0,0) 68%,
+            rgba(4,255,0,0) 75%,
+            rgba(4,245,10,1) 76%,
+            rgba(3,163,92,1) 84%,
+            rgba(3,143,112,0) 86%,
+            rgba(2,82,173,0) 92%,
+            rgba(1,51,204,1) 95%,
+            rgba(0,0,255,1) 100%);  
+        }
+        .wrapper > .scope{
+            position: absolute;
+            left: 470px;
+            top:150px;
+            border-radius: 50px;
+            background-image: url('../fff/family9.JPG');
+            background-position: -720px -550px;
+            background-size: 2000px 2000px;
+        }
+        .wrapper > .scope > div{
+            position: relative;
+            border-radius: 50px;
+            background: radial-gradient(ellipse at center, rgba(255,0,0,1) 0%,rgba(231,25,0,0.05) 4%,rgba(29,230,0,0.05) 37%,rgba(23,236,0,1) 38%,rgba(4,255,0,1) 41%,rgba(4,245,10,1) 43%,rgba(4,240,15,0) 44%,rgba(2,97,158,0.1) 72%,rgba(0,10,245,1) 89%,rgba(0,0,255,1) 91%,rgba(0,0,255,1) 98%);
+            width: 100px;
+            height: 100px;
+            
+        }
+        .wrapper > .scope > div > div{
+            width: 30px;
+            height: 1px;
+            background-color: #888;
+            position: absolute;
+        }
+
+        .wrapper > .scope > div > div:nth-child(1){
+            left : 35px;
+            top : 25px;
+            transform: rotate(90deg);
+        }
+        .wrapper > .scope > div > div:nth-child(2){
+            left : 35px;
+            top : 75px;
+            transform: rotate(90deg);
+        }
+        .wrapper > .scope > div > div:nth-child(3){
+            left : 5px;
+            top : 50px;  
+        }
+        .wrapper > .scope > div > div:nth-child(4){
+            right : 5px;
+            top : 50px;  
+        }
+
+        .shadow > div, .sizing > div{
+            background-color: #fff;
+        }
+
+        .shadow > div:nth-child(1){
+                     /* left top blur   그림자색 */
+            box-shadow: 5px 5px 10px #333;
+        }
+
+        .shadow > div:nth-child(2){
+                     /* left top blur   그림자색 */
+            box-shadow: 20px 0px 0px #f00;
+        }
+
+        .shadow > div:nth-child(3){
+                     /* left top blur   그림자색 */
+            box-shadow: 30px 30px 40px #333;
+        }
+        .shadow > div:nth-child(4){
+                     /* left top blur   그림자색 */
+            box-shadow: 3px 3px 6px #333;
+        }
+         .shadow > div:nth-child(5){
+            /* 다중 설정 불가
+            box-shadow: 20px 0px 0px #f00;
+            box-shadow: 0px 20px 0px #ff0;
+            */
+
+            box-shadow: 20px 0px 0px #f00,
+                        0px 20px 0px #ff0,
+                        -20px 0px 0px #0f0,
+                        0px -20px 0px #00f;
+        }
+
+        .shadow > div:nth-child(6){
+
+            box-shadow: 0px -20px 0px #fa0,
+                        20px 0px 0px #0f0,
+                        0px 20px 0px #31a,
+                        -20px 0px 0px #000,
+                        -20px -20px 0px #f00,
+                        20px -20px 0px #ff0,
+                        -20px 20px 0px #f0f,
+                        20px 20px 0px #00f;
+        }
+        .shadow > div:nth-child(7){
+                     
+            box-shadow:inset 5px 5px 10px #333;
+        }
+
+        .sizing > div:nth-child(1){
+                     
+            border: 20px solid #f00;
+        }
+
+        .sizing > div:nth-child(2){
+            box-sizing: border-box; /* border, padding 을 content(width, height) 
+                                        안에서 설정
+                                        margin 은 border-box에서 넣지 않는다
+                                        */                    
+            border: 20px solid #f00;
+        }
+
+        .sizing > div:nth-child(3){
+            box-sizing: content-box; /*기본값*/                    
+            border: 20px solid #f00;
+        }
+
+        .sizing > div:nth-child(4){
+                     
+            padding: 20px;
+        }
+
+        .sizing > div:nth-child(5){
+            box-sizing: border-box;                     
+            padding: 20px;
+        }
+
+        .sizing > div:nth-child(6){
+            border: 20px solid #f00;         
+            padding: 20px;
+        }
+
+        .sizing > div:nth-child(7){
+            box-sizing: border-box; 
+            border: 20px solid #f00;                    
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>10_gradient_drop</h1>
+    <h2>gradient</h2>
+    <div class="wrapper grad">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="scope">
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>shadow</h2>
+    <div class="wrapper shadow">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <h2>sizing</h2> 
+    <div class="wrapper sizing">
+        <div>내용1</div>
+        <div>내용2</div>
+        <div>내용3</div>
+        <div>내용4</div>
+        <div>내용5</div>
+        <div>내용6</div>
+        <div>내용7</div>
+    </div>
+</body>
+</html>

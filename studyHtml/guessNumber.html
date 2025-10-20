@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #4589ff;
+            margin-bottom: 20px;
+        }
+
+        .instructions {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .game-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4589ff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            /* cursor: pointer; */
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2970ff;
+        }
+
+        #restart {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        #restart:hover {
+            background-color: #e0e0e0;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .attempts {
+            margin-top: 15px;
+            color: #666;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 화면구성 -->
+    <div class="game-container">
+        <h1>숫자 맞추기 게임</h1>
+
+        <div class="game-form">
+            <input type="number" id="guess" placeholder="생각하는 숫자 넣기">
+            <button id="check">확인하기</button>
+            <button id="restart">새 게임</button>
+
+            <p id="levelDisplay">난이도</p>
+
+            <div class="level">
+                <button id="easy" value="100">easy</button>
+                <button id="middle" value="300">middle</button>
+                <button id="difficult" value="500">difficult</button>
+            </div>
+        </div>
+
+        <button id="hint">hint</button>
+        <div id="message" class="message">행운을 빕니다!</div>
+        <div id="attempts" class="attempts">시도 횟수: 0</div>
+    </div>
+
+
+
+
+
+    <script>
+        // 식별자? 변수들
+        let randomNumber;
+        let attempts = 0;
+        let level;
+        let maxAttempts = 10;
+        let gameOver = false;
+
+        const guessInput = document.getElementById('guess')
+        const checkButton = document.getElementById('check')
+        const restartButton = document.getElementById('restart')
+        const messageElement = document.getElementById('message');
+        const attemptsElement = document.getElementById('attempts');
+        const levelEasyValue = document.getElementById('easy').value;
+        const levelMiddleValue = document.getElementById('middle').value
+        const levelDifficultValue = document.getElementById('difficult').value;
+        const levelDisplay = document.getElementById('levelDisplay')
+        const hintButton = document.getElementById('hint');
+
+        console.log(levelDifficultValue);
+        console.log(levelMiddleValue);
+
+        // console.log(guessInput);
+        // console.log(levelDisplay)
+
+
+
+
+
+        // 이벤트 항목
+        guessInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                checkGuess();
+            }
+        })
+        //enter키로 대체 가능
+        checkButton.addEventListener('click', checkGuess);
+        restartButton.addEventListener('click', initializeGame);
+
+
+        document.getElementById('easy').addEventListener('click', () => {
+            level = 'easy';
+            levelDisplay.innerText = '난이도 : easy'
+            maxAttempts = 10;
+            initializeGame();
+            // console.log(levelDisplay.textContent)
+        })
+        document.getElementById('middle').addEventListener('click', () => {
+            level = 'middle';
+            levelDisplay.innerText = '난이도 : middle'
+            maxAttempts = 15;
+            initializeGame();
+
+            // console.log(levelDisplay.textContent)
+        })
+        document.getElementById('difficult').addEventListener('click', () => {
+            level = 'difficult';
+            levelDisplay.innerText = '난이도 : difficult'
+            maxAttempts = 15;
+            initializeGame();
+
+            // console.log(levelDisplay.textContent)
+        })
+        hintButton.addEventListener('click', () => {
+            if (randomNumber % 2 === 0) {
+                messageElement.textContent = '힌트: 정답은 짝수입니다!';
+            } else {
+                messageElement.textContent = '힌트: 정답은 홀수입니다!';
+            }
+        })
+
+
+
+
+
+        function initializeGame() {
+            switch (level) {
+                case 'easy':
+                    randomNumber = Math.floor(Math.random() * levelEasyValue) + 1;
+                    
+                    break;
+                case 'middle':
+                    randomNumber = Math.floor(Math.random() * levelMiddleValue) + 1;
+                    break;
+                case 'difficult':
+                    randomNumber = Math.floor(Math.random() * levelDifficultValue) + 1;
+                    break;
+            }
+            console.log(level);
+            
+            
+
+
+            attempts = 0;
+
+            guessInput.value = '';
+            guessInput.disabled = false;
+            checkButton.disabled = false;
+
+            messageElement.textContent = '행운을 빕니다!';
+            attemptsElement.textContent = '시도 횟수: 0';
+
+            console.log('정답: ' + randomNumber);
+        }
+
+
+        
+
+        // 숫자 확인 함수
+        function checkGuess(level) {
+            if (gameOver) return;
+
+            const userGuess = Number(guessInput.value);
+            console.log(guessInput.value);
+
+            if (isNaN(userGuess)) {
+                messageElement.innerText = '유효한숫자를 입력하세요.';
+                messageElement.style.color = '#f00';
+                return;
+            }
+
+            attempts++;
+            attemptsElement.innerText = `시도 횟수: ${attempts}`;
+            // if(attemptsElement===
+
+            if (userGuess === randomNumber) {
+                messageElement.textContent = `정답입니다! ${attempts}번 만에 맞추셨어요!`;
+                gameOver = true;
+                guessInput.disabled = true;
+                checkButton.disabled = true;
+            } else if (userGuess < randomNumber) {
+                messageElement.textContent = '너무 작아요! 더 큰 숫자를 입력해보세요.';
+                messageElement.style.color = 'red';
+            } else {
+                messageElement.textContent = '너무 커요! 더 작은 숫자를 입력해보세요.';
+                messageElement.style.color = 'red';
+            }
+
+            guessInput.value = '';
+            guessInput.focus();
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

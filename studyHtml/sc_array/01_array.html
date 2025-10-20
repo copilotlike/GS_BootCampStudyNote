@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_array</title>
+</head>
+<body>
+    <h1>01_array</h1>
+    <script>
+        //  CRUD
+        //  Create Read Update Delete
+
+        //Create
+        // 변수명 = [원소0,원소1,...]
+        let arr1 = [44,77,22,11,44,33,66,33,66] //배열생성 및 배열변수 선언
+        //인덱스     0   1  2 3  4  5   6 7   8
+        document.write(`arr1 : ${arr1} <br/>`)
+
+        //Read
+        // 배열명[인덱스]
+        document.write(`arr1[3] : ${arr1[3]} <br/>`)  //배열원소호출
+
+        //Update
+        arr1[2] = 2345  //배열원소 대입
+        document.write(`arr1 : ${arr1} <br/>`)
+
+        document.write(`arr1.length : ${arr1.length} <br/>`)
+
+        arr1[9] = 987   //추가
+
+        document.write(`arr1 : ${arr1} <br/>`)
+
+        document.write(`arr1.length : ${arr1.length} <br/>`)
+
+        arr1[13] = 555   //추가
+
+        // 배열의 크기를 결정하는 것은 맨 마지막의 index +1이므로 배열의 크기는 14다.
+
+        document.write(`arr1 : ${arr1} <br/>`)
+
+        document.write(`arr1.length : ${arr1.length} <br/>`)
+
+        //삭제 - 원소의 값만 삭제, 원소 칸은 없는 것으로 존재(배열이 줄어들지 않음)
+        delete arr1[4]
+
+        document.write(`arr1 : ${arr1} <br/>`)
+
+        document.write(`arr1.length : ${arr1.length} <br/>`)
+
+        document.write(`arr1[4] : ${arr1[4]} <br/><br>`) 
+
+
+
+
+        //배열의 합
+        let arr2 = [45,78,90,34,17,54,83]
+        let tot = 0
+        tot += arr2[0]
+        tot += arr2[1]
+        tot += arr2[2]
+        tot += arr2[3]
+        tot += arr2[4]
+        tot += arr2[5]
+        tot += arr2[6]
+        document.write(`tot : ${tot} <br/><br>`) 
+
+
+
+
+
+        /// for 문과 배열
+
+        tot = 0
+        for (let i = 0; i < arr2.length; i++) {
+            let ee = arr2[i]
+            tot += ee
+
+            document.write(`${i}, ${arr2[i]},${ee}, ${tot} <br/>`)
+        }
+        document.write(`tot : ${tot} <br/><br>`) 
+
+
+        tot = 0
+        for(let i in arr2){ // for~in  배열의 인덱스 를 차례대로 호출
+            let ee = arr2[i]
+            tot += ee
+
+            document.write(`${i}, ${arr2[i]},${ee}, ${tot} <br/>`)
+        }
+        document.write(`forin tot : ${tot} <br/><br>`) 
+
+
+        tot = 0
+        for(let j of arr2){ // for~of  배열의 원소를 차례대로 호출
+            // let es = arr2[j]  배열 인덱스를 가져오지 않음 (인덱스 파악불가)
+
+            tot += j
+            document.write(`${j}, ${tot} <br/>`)
+        }
+        document.write(`for of tot : ${tot} <br/><br>`) 
+
+
+        tot = 0
+        for(let ee of arr2){ 
+            if(ee%2 == 0){
+                tot += ee
+            }
+            document.write(`${ee}, ${tot} <br/>`)
+        }
+        document.write(`tot 2의 배수 합 : ${tot} ---------------------<br/><br>`)
+        
+        // 45,78,90,34,87,64,83, 92, 77
+        // 70 점 이상인 점수의 합계와 평균을 구하세요
+        // 70 점 이상인 배열을 구현하세요
+        
+        let arr3 = [45,78,90,34,87,64,83, 92, 77]
+        let arr4 = []
+        let 아브라카타브라 = 0
+        tot = 0
+        for (const ee of arr3) {
+            if(ee>=70){
+                tot += ee
+                arr4[아브라카타브라]=ee
+                아브라카타브라++
+            }
+            document.write(`원소 :${ee}, 원소번호:${아브라카타브라}, 조건에 맞는 합계${tot}, 조건에 맞는 원소배열 : [${arr4}] <br/><br>`)
+        }
+        document.write(`합계 ${tot}, 평균 ${tot/아브라카타브라},원소 갯수${아브라카타브라} <br/><br>`)
+        document.write(`${arr4} <br/><br>`)
+
+    </script>
+</body>
+</html>

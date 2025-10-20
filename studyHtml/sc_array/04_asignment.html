@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_exam</title>
+    <style>
+        section{
+            display: flex;
+            justify-content: space-around;
+        }
+        section > div{
+            border: 1px solid #ccc;
+            padding:10px;
+            height: 20px;
+            width: 100px;
+            overflow: hidden;
+            line-height: 20px;
+        }
+        .수{
+            background-color: #f55;
+        }
+        .우{
+            background-color: #fa4;
+        }
+        .미{
+            background-color: #ff0;
+        }
+        .양{
+            background-color: #0f0;
+        }
+        .가{
+            background-color: #0ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>04_exam</h1>
+    <script>
+        //1. 입력부
+        let studs = [
+                //반 , 성별, 이름, 국어, 영어,수학
+                    [1, '남', '김민준', 75, 88, 92],
+                    [1, '남', '박서준', 53, 77, 85],
+                    [2, '남', '이도현', 88, 90, 85],
+                    [2, '여', '김유정', 88, 85, 87],
+                    [5, '여', '조보아', 88, 85, 47],
+                    [5, '남', '이동욱', 70, 52, 68],
+                    [5, '남', '이종석', 75, 68, 80],
+                    [3, '남', '남주혁', 40, 65, 52],
+                    [1, '남', '위하준', 72, 75, 73],
+                    [4, '여', '신민아', 90, 92, 88],
+                    [1, '여', '박은빈', 85, 83, 86],
+                    [3, '남', '서강준', 75, 78, 80],
+                    [2, '여', '정해인', 42, 55, 30],
+                    [2, '여', '송혜교', 95, 98, 93],
+                    [1, '여', '이서윤', 90, 95, 89],
+                    [1, '여', '최지우', 82, 60, 78],
+                    [1, '여', '김태희', 68, 72, 75],
+                    [2, '여', '김지원', 85, 88, 82],
+                    [2, '여', '한효주', 68, 40, 57],
+                    [3, '남', '현빈', 83, 85, 88],
+                    [5, '남', '박서준', 82, 80, 85],
+                    [1, '남', '정우성', 55, 60, 65],               
+                    [3, '여', '수지', 95, 90, 92],
+                    [3, '여', '김소현', 82, 84, 86],
+                    [4, '남', '류준열', 77, 80, 75],
+                    [4, '남', '이제훈', 85, 38, 50],
+                    [2, '여', '손예진', 92, 90, 95],
+                    [5, '여', '박민영', 92, 90, 95],
+                    [4, '여', '아이유', 98, 95, 99],
+                    [4, '여', '김고은', 80, 82, 68],
+                    [3, '남', '박보검', 70, 72, 68],
+                    [3, '여', '박신혜', 90, 93, 91],
+                    [4, '남', '변요한', 65, 70, 68],
+                    [5, '남', '송중기', 50, 72, 55],
+                    [1, '남', '오지환', 98, 92, 100],
+                    [1, '여', '박보영', 70, 85, 50],
+                    [5, '여', '김다미', 95, 58, 93],
+                    [2, '남', '강하늘', 65, 40, 75],
+                    [2, '남', '공유', 80, 82, 78],
+                    [5, '여', '한지민', 80, 82, 78]
+                    ]
+        let ban = [0,0,0,0,0,0]
+        // 반이 1부터 시작되므로 5반까지 작성하고자 한다면 length:6이 되어야함.
+        let banGender= [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]]
+        let gender= [0,0]
+        let genTitle = ['남','여']
+
+        // 2.1 초기계산
+        for (let st of studs) {
+            //studs의 element를 반복함.
+            // fot of나 in 함수는 studs의 배열 값을 직접 st 변수에 담는다는 것이 중요함.
+            // 실제 index를 활용한 for문을 활용하기 위해서는 실제 index 값을 쓸수 있는 일반 for문이 사용하는 것이 맞음.
+            // console.log(st);
+
+            ban[st[0]]++ // 반 인원수
+            // console.log(st[0]);
+            //실제 element 값이 들어가 배열위치값을 더한다.
+
+            gender[genTitle.indexOf(st[1])]++   //성별 인원수
+            //indexOf('남' or '여')의 시작 위치 값을 반환 
+            //'남'->0 , '여' ->1
+            
+            banGender[st[0]][genTitle.indexOf(st[1])]++
+            // 반에 따른 성별의 횟수를 확인하고 자 하는 거임.
+    
+
+            let tot = 0
+            for(let j of st.slice(3)){
+                // console.log(st.slice(3));
+                // 배열요소 index[3]부터 끝까지 비교
+                // 첫번째 줄 3가지 값 총합 나옴.
+                tot += j
+            }
+            st.push(tot)
+            st.push(tot/3)
+            st.push(['가','가','가','가','가','가','양','미','우','수','수'][(tot - tot%30)/30])
+        //  0~5 : 가, 6 : 양 , 7 : 미, 8:우, 9,10:수 
+        
+        //(tot - tot%30)/30는 30단위로 절삭하기 위해서 만들어둠.
+        // 0~29는 : 0 
+        // 30~59 : 1
+        // 60~89 : 2 ... 이런식임. 이렇게 해서 수, 우, 미, 양, 가를 나눔.
+        
+        }
+        console.log(ban)
+        console.log(gender)
+        console.log(banGender)
+
+
+        //2.2 등수
+        for (let me of studs) {
+            let rank = [1,1,1,1,1]
+            for (let you of studs) {
+                if(you[7]>me[7]){
+                    //평균값 비교
+                    rank[0]++ //입력순서에서
+                    rank[1]++ //전체등수
+                    
+                    if(you[0]==me[0]){
+                        //반기준으로
+                        rank[2]++
+                    }
+                    if(you[1]==me[1]){
+                        // 성별기준으로 
+                        rank[3]++
+                        if(you[0]==me[0]){
+                            // 성별+반기준으로
+                            rank[4]++
+                        }
+                    }
+                }
+            }
+            me.push(rank)
+        }
+        
+
+
+
+        //2.3 위치
+        /*
+            0. 입력순서
+            1. 전체 등수
+            2. 반별 
+            3. 성별별 등수
+            4. 반성별별 등수 
+        */
+        for (let i= 0 ; i<studs.length;i++) {
+            let pos = [i+1]
+            //position 위치인데 1번 부터 시작하기 위해서 인지?
+
+            me = studs[i]
+
+            pos[1] = me[9][1]
+            pos[2] = me[9][2]
+            pos[3] = me[9][3]
+            pos[4] = me[9][4]
+            // me의 r9 c1,2,3,4 의미 모름.
+
+            for(let b = 1;b<me[0];b++){
+                pos[2] += ban[b]
+                pos[4] += ban[b]
+            }
+            for(let b = 0;b< genTitle.indexOf(me[1]);b++){
+                pos[3] += gender[b]
+                pos[4] += banGender[me[0]][b]
+            }
+            me.push(pos)
+        }
+        // console.log(studs)
+
+
+
+
+
+        //3. 출력부
+        let title = ["입력순서","전체 등수","반별", "성별별 등수","반성별별 등수"]
+
+        for (const t in title) {
+            document.write(`<h3>${title[t]}</h3>`)
+            for (let i=1 ; i<=studs.length; i++) {
+
+                for (const st of studs) {    
+                    if(i == st[10][t]){
+                        let ttt =""
+                        for (const pre of st.slice(0,9)) {
+                            //10열은 전체행렬이라서 9열까지만
+
+                            ttt += `<div>${pre}</div>`
+                            // 0~9열까지 데이터 출력을 위해 계산 
+                        }
+
+                        ttt += `<div>${st[9][t]}</div>`
+                        //title -> 0~4열 까지의 
+                        document.write(`<section class='${st[8]}'>${ttt}</section>`)
+                    }
+                    
+                }
+            }
+
+            
+        }
+
+
+
+    </script>
+</body>
+</html>

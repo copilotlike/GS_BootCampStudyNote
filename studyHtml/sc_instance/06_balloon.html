@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_ballon</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        img {
+            width: 160px;
+            height: 180px;
+            border: 1px solid black;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            width: 700px;
+            font-size: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            document.querySelector("img:nth-of-type(1)").onclick = function () {
+                let bg = document.querySelector("img:nth-of-type(5)");
+                bg.style.backgroundColor = "orange";
+            }
+
+            document.querySelector("img:nth-of-type(2)").onmouseover = function () {
+                let bg = document.querySelector("img:nth-of-type(6)");
+                bg.style.boxShadow = "10px 10px 5px gray";
+            }
+
+            document.querySelector("img:nth-of-type(3)").onmouseout = function () {
+                let bg = document.querySelector("img:nth-of-type(7)");
+                bg.style.opacity = "0.5";
+            }
+
+            document.querySelector("img:nth-of-type(4)").onmouseup = function () {
+                let bg = document.querySelector("img:nth-of-type(8)");
+                bg.style.transform = "rotate(90deg)";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>06_ballon</h1>
+    <div class="wrapper">
+        <div>
+            <img src="../example/풍선/01.png" alt="">
+            <img src="../example/풍선/02.png" alt="">
+            <img src="../example/풍선/03.png" alt="">
+            <img src="../example/풍선/04.png" alt="">
+            <img src="../example/풍선/05.png" alt="">
+            <img src="../example/풍선/06.png" alt="">
+            <img src="../example/풍선/07.png" alt="">
+            <img src="../example/풍선/08.png" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

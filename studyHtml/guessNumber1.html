@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 추리</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Dongle&family=East+Sea+Dokdo&family=Gasoek+One&family=IBM+Plex+Sans+KR&family=Nanum+Pen+Script&family=Sirivennela&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-image: url(../html_work/fff/Orange\ question\ mark\ background\ with\ text\ space\ _\ Free\ Vector.jpg);
+            color: #000000;
+        }
+
+        .settingclass>label>img {
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin-top: 15px;
+            margin-left: 10px;
+            margin-bottom: 25px;
+        }
+
+        .guide_bookclass {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 400px;
+            height: 100%;
+            background-color: #f5f5f5;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: left 0.3s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+
+        #guide:checked~.guide_bookclass {
+            left: 0;
+            transition-duration: 0.3s;
+        }
+
+        .guide_contentclass>h2 {
+            color: #dfb600;
+            border-bottom: 3px solid rgb(228, 188, 87);
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-top: 0;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .guide_contentclass>p {
+            margin-bottom: 30px;
+            font-size: 0.83rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .close_bttnclass {
+            display: block;
+            margin-top: 40px;
+            padding: 10px;
+            text-align: center;
+            background-color: #dfb600;
+            color: white;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+
+        .close_bttnclass:hover {
+            background-color: #f5c836;
+            transition-duration: 0.2s;
+        }
+
+        .timerclass {
+            position: relative;
+            left: 350px;
+            background-color: #0000;
+            height: auto;
+            text-align: center;
+            width: 150px;
+        }
+
+        .timeclass {
+            background-color: #dfb600;
+            text-align: center;
+            font-weight: 800;
+            border-radius: 0px 0px 10px 10px;
+            padding: 5px 10px;
+        }
+
+        .wrpclass {
+            position: relative;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding-bottom: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: goldenrod;
+            font-weight: 900;
+        }
+
+        .structionclass {
+            color: #666666;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .formclass {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #guessbox {
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        #checkbox {
+            background-color: #dfb600;
+            color: white;
+            font-weight: 700;
+            border: none;
+            box-shadow: 5px 5px 5px #d1cfcf;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        #newgamebox {
+            background-color: #e4daae;
+            color: rgb(116, 109, 109);
+            font-weight: 700;
+            border: none;
+            box-shadow: 5px 5px 5px #d1cfcf;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        #checkbox:hover {
+            background-color: #f5c836;
+        }
+
+        #newgamebox:hover {
+            background-color: #faf4dc;
+        }
+
+        .messageclass {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #585858;
+        }
+
+        .struction_score_class {
+            display: flex;
+            justify-content: space-around;
+            font-weight: 800;
+            margin-top: 40px;
+            color: #666;
+            font-size: 16px;
+        }
+
+        #easy,
+        #middle,
+        #difficult {
+            width: 100px;
+            background-color: #dfb611;
+            color: white;
+            font-weight: 700;
+            border: none;
+            box-shadow: 5px 5px 5px #d1cfcf;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        #levelDisplay {
+            /* background-color: #e4daae; */
+            color: rgb(116, 109, 109);
+            font-weight: 900;
+            border: 1px solid white;
+            /* box-shadow: 5px 5px 5px #d1cfcf; */
+            /* padding: 10px; */
+            /* border-radius: 5px; */
+            font-size: 25px;
+            transition: background-color 0.3s;
+
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="guide" hidden>
+
+    <div class="settingclass">
+        <label for="guide">
+            <img src="../html_work/fff/guidebook.png" alt="가이드북" title="가이드북 열기">
+        </label>
+    </div>
+
+    <div class="guide_bookclass">
+        <div class="guide_contentclass">
+            <h2>[ 숫자 추리 가이드 ]</h2>
+            <p>
+                <font style="font-size: 1.5rem;">1.</font> 1부터 100까지의 숫자 중 하나를 입력하세요.
+            </p>
+            <p>
+                <font style="font-size: 1.5rem;">2.</font> 기회는 총 8회이며, 시도할 때마다 점수 125점씩 차감됩니다.
+            </p>
+            <p>
+                <font style="font-size: 1.5rem;">3.</font> 숫자를 입력하면 정답보다 큰지 작은지 알 수 있습니다.
+            </p>
+            <p>
+                <font style="font-size: 1.5rem;">4.</font> 점수를 최대한 많이 얻어 <font color="goldenrod">최고 기록</font>에 도전하세요!
+            </p>
+            <label for="guide" class="close_bttnclass">닫기</label>
+        </div>
+    </div>
+
+    <div class="wrpclass">
+        <div class="timerclass">
+            <div id="timerdisplayid" class="timeclass">
+                <font style="font-size: 1.1rem;">🕐</font> : &nbsp; 01 : 00
+            </div>
+        </div>
+        <h1>🔎숫자 추리</h1>
+        <div class="structionclass">
+            <p>1 ~ 300까지의 숫자 중 <font color="goldenrod">하나</font>를 맞춰보세요! (제한 횟수 : 10회)</p>
+        </div>
+
+        <form action="" class="formclass">
+            <input type="number" id="guessbox" placeholder="원하는 숫자를 입력하세요" min="1" max="100">
+            <input type="button" id="checkbox" value="확인하기">
+            <input type="button" id="newgamebox" value="다시하기">
+        </form>
+
+        <p id="levelDisplay">난이도</p>
+
+        <div class="level">
+            <button id="easy" value="100">easy</button>
+            <button id="middle" value="300">middle</button>
+            <button id="difficult" value="500">difficult</button>
+        </div>
+        <br>
+        <button id="hint">hint</button>
+        <div id="messageid" class="messageclass">최고 점수를 가려보세요!</div>
+        <div class="struction_score_class">
+            <div id="scoreid" class="scoreclass">
+                <font style="font-size: 1.3rem;">SCORE</font> <br>1000점
+            </div>
+            <div id="countid" class="countclass">
+                <font style="font-size: 1.3rem;">CHANCE</font> <br>0 / 10회
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+
+
+        /* 
+        01. 변수 설정 및 HTML에 있는 거 가져오기(랜덤 숫자, 시도횟수, 최대시도횟수, 점수, 점수차감, 게임오버, 시간, 시간제한, 남아있는 시간)
+
+            ㄴ값이 고정되어 있다면 const로 하고, let으로 변수 다 만들자.
+            ㄴ숫자(random_num) / 시도 횟수 0~10번까지(변동 가능)(초기 count)(최대 시도횟수 count_max) / 점수는 1000점에서 시작하는데 -100점씩 차감(변동 가능) / 게임오버
+
+        02. HTML에 있는 것들 담기
+
+            document.querySelector 사용해서 불러내기
+            입력칸 담기, 확인하기 버튼 담기, 다시하기 버튼 담기, 메시지 변경하기 위해 담기, 횟수 변경을 위해 담기, 점수 변경을 위해 담기
+
+        03. 초기값 설정
+
+            ㄴ 랜덤 숫자 만들기(로또 방식 참조) -- 소수점 절삭 / 1 ~ 100(변동가능)까지 랜덤 숫자
+            ㄴ 기본 설정값(횟수, 점수, 게임오버) -- 횟수는 0, 점수는 1000, 게임오버는 false를 해서 오버되지 않게 하기
+            ㄴ 칸의 입력칸에 아무것도 있으면 안됨, 기본메시지, 점수와 횟수에 해당 기본값을 내용으로 출력 
+
+
+        04. 숫자를 입력했을 때 실행
+
+            입력칸에 숫자가 아닌 다른 것을 기입할 경우와 맞는 입력값일 경우 2가지를 생각.
+
+
+            아닐 때 - 
+            (띄어쓰기, 문자열, 0~100까지의 숫자 범위를 벗어나는 숫자)
+
+            trim() - 띄어쓰기
+            Number - 숫자로 바꿔주기
+            if문 써서 1보다 작고 100보다 큰 숫자 쳐내기(메시지 출력 - 이거 아니다.) or 사용해야 할 듯
+
+            맞으면 - 
+
+            횟수 늘어남
+            점수 차감
+
+            맞는 입력값일 때 정답/횟수 초과/오답(작거나, 크거나)
+            if문 사용해서 
+            정답이면 게임오버 처리(P), 입력칸, 확인하기 버튼 비활성화, 메시지 출력 - 이거 맞다
+            횟수 초과면 게임오버 처리(N), 입력칸, 확인하기 버튼 비활성화, 메시지 출력 - 횟수 초과함
+            오답(작을 경우) - 메시지 출력 - 이거 작음
+            오답(클 경우) - 메시지 출력 - 이거 큼
+            
+            
+        */
+
+        // 1. 변수 설정
+        let level;
+        let random_num; // 랜덤 값(1~100까지의 숫자)
+
+        let count = 0; // 초기 시도 횟수
+        let count_max = 10; // 최대 시도횟수
+
+        let score = 1000; // 현재 점수
+        const score_minus = 100; // 차감점수 1회 시도마다 차감점수
+
+        let game_over = false; // 게임오버
+
+        let timerid; // 타이머 저장할 변수
+        const timer_limit = 60; // 시간 제한
+        let timer_remain = timer_limit // 남은 시간 timer_limit(==60) --> timer_remain에 담음.
+
+        // 2. 변수 설정 - body 안에 있는 것들 변수명에 담기
+        const guessbox_input = document.querySelector('#guessbox');
+        const checkbox_input = document.querySelector('#checkbox');
+        const newgamebox_input = document.querySelector('#newgamebox');
+        const message_text = document.querySelector('#messageid');
+        const count_box = document.querySelector('#countid');
+        const score_box = document.querySelector('#scoreid');
+        const timer_display = document.querySelector('#timerdisplayid');
+        const levelEasyValue = document.getElementById('easy').value;
+        const levelMiddleValue = document.getElementById('middle').value
+        const levelDifficultValue = document.getElementById('difficult').value;
+        const levelDisplay = document.getElementById('levelDisplay')
+        const hintButton = document.getElementById('hint');
+
+
+
+
+
+        function update_timer() {
+            const minutes = Math.floor(time_remain / 60);
+            const seconds = time_remain % 60;
+
+            const making_minutes = ('0' + minutes).slice(-2);
+            const making_seconds = ('0' + seconds).slice(-2);
+
+            const making_time =
+                `${making_minutes} : ${making_seconds}`;
+
+            if (time_remain <= 10) { // 10초 남았을 때 색상
+                timer_display.style.color = '#f00'; // 빨간색 글씨
+                timer_display.style.backgroundColor = '#dfb600'; // 원래 배경색 유지
+            } else {
+                timer_display.style.color = 'black'; // 기본 글씨색
+                timer_display.style.backgroundColor = '#dfb600'; // 원래 배경색 유지
+            }
+
+            timer_display.innerHTML = `<font style="font-size: 1.1rem;">🕐</font> : &nbsp; ${making_time}`;
+        }
+        function end_timer() { // 시간 초과 시 게임 오버
+            if (game_over) return;
+
+            game_over = true; // 게임오버
+            clearInterval(timerid); // 타이머 정지
+
+            message_text.innerHTML = `Game Over!<br>${timer_limit}초를 모두 소진! 정답은 "${random_num}"`;
+            message_text.style.color = '#ff4757';
+
+            guessbox_input.disabled = true;
+            checkbox_input.disabled = true;
+        }
+        function start_timer() { // 타이머 시작 함수
+            clearInterval(timerid); // 혹시 모를 이전 타이머 정리
+            time_remain = timer_limit; // 남아있는 시간이 제한 시간과 같다.
+            update_timer();
+
+            timerid = setInterval(() => { // timerid는 남아있는 시간에서 1씩 감소되고 해당 함수호출, 만약에 남아있는 시간이 0보다 작으면 게임오버
+                time_remain--;
+                update_timer();
+
+                if (time_remain <= 0) {
+                    end_timer();
+                }
+            }, 1000); // 1초마다 실행
+        }
+
+
+
+
+
+        function reset_game() { // 3. 초기 설정 값
+            switch (level) {
+                case 'easy':
+                    random_num = Math.floor(Math.random() * levelEasyValue) + 1;
+                    break;
+                case 'middle':
+                    random_num = Math.floor(Math.random() * levelMiddleValue) + 1;
+                    break;
+                case 'difficult':
+                    random_num = Math.floor(Math.random() * levelDifficultValue) + 1;
+                    break;
+            } // 랜덤 숫자 설정
+            console.log(level);
+
+            count = 0; // 기본설정횟수 0
+            score = 1000; // 1000점
+            game_over = false; // game_over은 false해서 게임오버되지 않게 
+
+            start_timer() // 타이머가 시작될 수 있게 호출 
+
+            guessbox_input.value = ''; // 칸에 입력값이 비어있어야 함
+            guessbox_input.disabled = false; // 활성화
+            checkbox_input.disabled = false; // 활성화
+
+            message_text.innerHTML = '최고 점수에 도전하세요!';
+            message_text.style.color = '#333';
+            count_box.innerHTML = `CHANCE <br> ${count} / ${count_max}회`;
+            score_box.innerHTML = `SCORE <br> ${score}점`;
+
+            console.log("정답" + random_num);
+            dd
+        }
+
+
+
+
+        function check_guess() { // 4. 숫자를 입력했을 때의 발생해야 할 것들.
+            // 이상한거 기입하면 안됨, 띄어쓰기X, 문자열X, 0, 100초과 시 안됨. 
+            // 경우의 수 : 정답/오답(크거나, 작거나), 횟수초과, 제한시간 초과 
+            // 점수 차감
+
+            // 맞지 않을 때
+
+            if (game_over) return;
+            const input_value = guessbox_input.value.trim(); // 입력한 값(변수)를 입력한 값(띄어쓰기 용납안함)
+            const meguess = input_value === '' ? NaN : Number(input_value); // 내가 입력한 값이 문자열이면 NaN : 아니면 숫자로 여기기
+
+            switch (level) {
+                case 'easy':
+                    if (meguess < 0 || meguess > levelEasyValue || isNaN(meguess)) { // 내가 입력한 값이 1보다 작거나 100보다 크거나 내가 입력한 값이 숫자면 false, 숫자가 아니면 true면 
+                        message_text.innerHTML = '1부터 100 사이의 유효한 숫자를 입력해주세요!'; // 왜 그렇게 했냐고 표시
+                        message_text.style.color = '#ff4757';
+                        return; // 아닌 입력은 횟수를 차감X
+                    }
+                    break;
+
+                case 'middle':
+                    if (meguess < 0 || meguess > levelMiddleValue || isNaN(meguess)){
+                        message_text.innerHTML = '1부터 300 사이의 유효한 숫자를 입력해주세요!'; // 왜 그렇게 했냐고 표시
+                    message_text.style.color = '#ff4757';
+                    return; // 아닌 입력은 횟수를 차감X
+                    }
+                    break;
+
+                case 'difficult' :
+
+            if (meguess < 0 || meguess > levelDifficultValue || isNaN(meguess)){
+                message_text.innerHTML = '1부터 500 사이의 유효한 숫자를 입력해주세요!'; // 왜 그렇게 했냐고 표시
+                message_text.style.color = '#ff4757';
+                return; // 아닌 입력은 횟수를 차감X
+                }
+                break;
+
+    }
+
+
+        // 맞는 입력일 경우에만 횟수 및 점수 차감
+        count++; // 횟수 늘어남
+        score -= score_minus; // 점수에 해당 차감점수를 빼기
+
+        count_box.innerHTML = `CHANCE <br>${count} / ${count_max}회`;
+        score_box.innerHTML = `SCORE <br>${score}점`;
+
+        if (meguess === random_num) { //정답
+            message_text.innerHTML = `Correct!<br>${count}번 만에 맞추셨어요!`;
+            message_text.style.color = '#2ed573';
+            game_over = true; // 정답을 맞췄으니 해당 게임이 오버됨
+            guessbox_input.disabled = true; // 비활성화
+            checkbox_input.disabled = true; // 비활성화
+            clearInterval(timerid); // 시간종료
+
+        } else if (count >= count_max) { // 횟수 초과
+            message_text.innerHTML = `Game Over!<br>${count_max}회를 모두 소진! 정답은 "${random_num}"`;
+            message_text.style.color = '#ff4757';
+            game_over = true; // 횟수 내에 정답을 못 맞췄으니 게임 오버
+            guessbox_input.disabled = true; // 비활성화
+            checkbox_input.disabled = true; // 비활성화
+            clearInterval(timerid); // 시간종료
+
+        } else if (meguess < random_num) { //오답(작을 경우)
+            message_text.innerHTML = `${meguess}은(는) 해당 숫자보다 작습니다!`; // 입력한 값을 비교할 수 있게 meguess
+            message_text.style.color = '#ff6b81';
+        } else { // 4. 오답 (클 경우)
+            message_text.innerHTML = `${meguess}은(는) 해당 숫자보다 큽니다!`; // 입력한 값을 비교할 수 있게 meguess
+            message_text.style.color = '#ff6b81';
+        }
+
+        guessbox_input.value = ''; // 비워야 함.
+        guessbox_input.focus() // 이거 배웠는데 입력하는 input에 집중되게 해준다고 함. 
+        }
+
+
+
+
+        // Event listener
+        checkbox_input.addEventListener('click', check_guess);
+        newgamebox_input.addEventListener('click', reset_game);
+
+        document.getElementById('easy').addEventListener('click', () => {
+            level = 'easy';
+            levelDisplay.innerText = '난이도 : easy'
+            // maxAttempts = 10;
+            reset_game();
+            // console.log(levelDisplay.textContent)
+        })
+        document.getElementById('middle').addEventListener('click', () => {
+            level = 'middle';
+            levelDisplay.innerText = '난이도 : middle'
+            // maxAttempts = 15;
+            reset_game();
+
+            // console.log(levelDisplay.textContent)
+        })
+        document.getElementById('difficult').addEventListener('click', () => {
+            level = 'difficult';
+            levelDisplay.innerText = '난이도 : difficult'
+            // maxAttempts = 15;
+            reset_game();
+
+            // console.log(levelDisplay.textContent)
+        })
+        hintButton.addEventListener('click', () => {
+            if (random_num % 2 === 0) {
+                message_text.innerHTML = '힌트: 정답은 짝수입니다!';
+            } else {
+                message_text.innerHTML = '힌트: 정답은 홀수입니다!';
+            }
+        })
+
+        guessbox_input.addEventListener('keypress', function (event) {
+            if (event.key === '확인하기') {
+                check_guess();
+            }
+        });
+
+    </script>
+</body>
+
+</html>

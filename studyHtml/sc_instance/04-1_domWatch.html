@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_domWatch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .date {
+            font-size: 4rem;
+        }
+
+        .time {
+            font-size: 3rem;
+        }
+
+        section {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #ff0;
+            border-radius: 100px;
+            margin: auto;
+        }
+
+        /* @keyframes watch {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(359deg);
+            }
+        } */
+
+        section>div:nth-of-type(1) {
+            position: absolute;
+            width: 2px;
+            height: 65px;
+            background-color: #f00;
+            box-shadow: 3px 3px 5px #000;
+            left: 99px;
+            top: 35px;
+            transform-origin: bottom center;
+            animation-name: watch;
+            animation-duration: 59s;
+            /* animation-timing-function: linear; */
+            animation-timing-function: steps(11);
+            transform: rotate();
+        }
+
+        section>div:nth-of-type(2) {
+            position: absolute;
+            width: 2px;
+            height: 75px;
+            background-color: blue;
+            box-shadow: 3px 3px 5px #000;
+            left: 99px;
+            top: 25px;
+            transform-origin: bottom center;
+            animation-name: watch;
+            animation-duration: 59s;
+            /* animation-timing-function: linear; */
+            animation-timing-function: steps(59);
+        }
+
+        section>div:nth-of-type(3) {
+            position: absolute;
+            width: 2px;
+            height: 85px;
+            background-color: green;
+            box-shadow: 3px 3px 5px #000;
+            left: 99px;
+            top: 15px;
+            transform-origin: bottom center;
+            animation-name: watch;
+            animation-duration: 59s;
+            /* animation-timing-function: linear; */
+            animation-timing-function: steps(59);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            // let dateBox = document.querySelector(".date")
+            // let timeBox = document.querySelector(".time")
+
+            let h = document.querySelector(".hour")
+            let m = document.querySelector(".minute")
+            let s = document.querySelector(".second")
+
+
+            function dateGo() {
+                let now = new Date()
+                // console.log(now)
+                let hour = now.getHours();
+                let minute = now.getMinutes();
+                let second = now.getSeconds();
+                // console.log(second)
+
+                let inspectElement1 = h.innerText = now.getHours();
+                let inspectElement2 = m.innerText = now.getMinutes();
+                let inspectElement3 = s.innerHTML = now.getSeconds();
+                // console.log(inspectElement1);
+                // console.log(inspectElement2);
+                // console.log(inspectElement3);
+
+
+                let hourDegree = hour * (360 / 12);
+                let minuteDegree = minute * (360 / 60);
+                let secondDegree = second * (360 / 60);
+                // console.log(hourDegree)
+                // console.log(secondDegree)
+
+                h.style.transform = `rotate(${hourDegree}deg)`;
+                m.style.transform = `rotate(${minuteDegree}deg)`;
+                s.style.transform = `rotate(${secondDegree}deg)`;
+
+            }
+
+            let dg = setInterval(dateGo, 1000)
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>04_domWatch</h1>
+
+    <section>
+        <div class="hour">시</div>
+        <div class="minute">분</div>
+        <div class="second">초</div>
+    </section>
+</body>
+
+</html>

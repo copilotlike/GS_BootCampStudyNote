@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #4589ff;
+            margin-bottom: 20px;
+        }
+
+        .instructions {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .game-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4589ff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2970ff;
+        }
+
+        #restart {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        #restart:hover {
+            background-color: #e0e0e0;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .attempts {
+            margin-top: 15px;
+            color: #666;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>숫자 맞추기 게임</h1>
+        <p class="instructions">1부터 100까지의 숫자 중 하나를 맞춰보세요!</p>
+
+        <div class="game-form">
+            <input type="number" id="guess" min="1" max="100" placeholder="1-100 사이 숫자">
+            <button id="check">확인하기</button>
+            <button id="restart">새 게임</button>
+        </div>
+
+        <div id="message" class="message">행운을 빕니다!</div>
+        <div id="attempts" class="attempts">시도 횟수: 0</div>
+    </div>
+
+    <div class="game-container">
+        <h1>score board</h1>
+        <p class="instructions"></p>
+
+
+        <div class="game-form">
+            <input type="number" id="guess" min="1" max="100" placeholder="1-100 사이 숫자">
+            <button id="check">확인하기</button>
+            <button id="restart">새 게임</button>
+        </div>
+
+        <div id="message" class="message">행운을 빕니다!</div>
+        <div id="attempts" class="attempts">시도 횟수: 0</div>
+    </div>
+
+
+    <script>
+        // 게임에 필요한 변수들을 선언합니다
+        let randomNumber; // 컴퓨터가 선택한 랜덤 숫자
+        let attempts = 0;    // 시도 횟수
+        let gameOver = false; // 게임 종료 여부
+
+        // HTML 요소들을 가져옵니다
+        const guessInput = document.getElementById('guess');
+        const checkButton = document.getElementById('check');
+        const restartButton = document.getElementById('restart');
+        const messageElement = document.getElementById('message');
+        const attemptsElement = document.getElementById('attempts');
+
+        // 게임 초기화 함수
+        function initGame() {
+            // 1부터 100 사이의 랜덤 숫자 생성
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+
+            attempts = 0;
+            gameOver = false;
+
+            guessInput.value = '';
+            guessInput.disabled = false;
+            checkButton.disabled = false;
+
+            messageElement.textContent = '행운을 빕니다!';
+            messageElement.style.color = '#333';
+            attemptsElement.textContent = '시도 횟수: 0';
+
+            // 디버깅용 - 정답 확인하기 (학습용으로 주석 처리되어 있음)
+            // console.log('정답: ' + randomNumber);
+        }
+
+
+
+
+        // 숫자 확인 함수
+        function checkGuess() {
+            if (gameOver) return;
+
+            const userGuess = Number(guessInput.value);
+
+            if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
+                messageElement.textContent = '1부터 100 사이의 유효한 숫자를 입력해주세요!';
+                messageElement.style.color = '#ff4757';
+                return;
+            }
+
+            attempts++;
+            attemptsElement.textContent = `시도 횟수: ${attempts}`;
+
+            if (userGuess === randomNumber) {
+                messageElement.textContent = `정답입니다! ${attempts}번 만에 맞추셨어요!`;
+                messageElement.style.color = '#2ed573';
+                gameOver = true;
+                guessInput.disabled = true;
+                checkButton.disabled = true;
+            } else if (userGuess < randomNumber) {
+                messageElement.textContent = '너무 작아요! 더 큰 숫자를 입력해보세요.';
+                messageElement.style.color = '#ff6b81';
+            } else {
+                messageElement.textContent = '너무 커요! 더 작은 숫자를 입력해보세요.';
+                messageElement.style.color = '#ff6b81';
+            }
+
+            guessInput.value = '';
+            guessInput.focus();
+        }
+
+        // 이벤트 리스너 등록
+        checkButton.addEventListener('click', checkGuess);
+        restartButton.addEventListener('click', initGame);
+        guessInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                checkGuess();
+            }
+        });
+
+        // 게임 시작
+        initGame();
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+난이도 
+1~100          1~300  1~500
+쉬움목숨10  중간목숨15  어려움  15
+힌트 : 짝수/ 홀수 
+
+
+점수 게시판.
+기록 남기는 것
+(밑에 작아요 커요 자리에 넣은 숫자 표현하고)
