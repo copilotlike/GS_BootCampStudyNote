@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_include</title>
+</head>
+<body>
+    <h1>03_include</h1>
+    이름 : {{pname}} <br/>
+    arr : {{arr}} - {{arr[0]}}<br/>
+   
+    {# include는 현재 view 페이지 기준 주소 사용#}
+    {% include 'header.html'%}
+    {% include 'subb.html'%}
+    
+
+</body>
+</html>
