@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetchHome</title>
+    <script>
+        window.onload = function(){
+            function consLog(msg){
+                document.querySelector("#cons").innerHTML+=msg+'<br/>'
+            }
+
+            document.querySelector("#getGo").onclick=function(){
+               fetch('/test1')      //   http://192.168.0.78/test1
+               .then(answer=>{
+                    console.log('정상 : ',answer.ok, answer.status)
+                    //console.log('text() : ',answer.text())
+                    return answer.text()  // Promise 처리 -> 다음 then 으로 리턴하여 확인
+               })
+               .then(data=>{
+                    //console.log('data : ',data)
+                    consLog(data)
+               })
+               .catch(err=>{
+                    console.log('에러 : ',err.message)
+               })
+            }
+
+            document.querySelector("#queryGo").onclick=function(){
+               fetch('/test2?pid=aaa&age=23',{
+                method:'GET'
+               })     
+               .then(answer=> answer.text())
+               .then(data=>consLog(data))
+               .catch(err=>console.log('에러 : ',err.message))
+            }
+
+            document.querySelector("#jsonGo").onclick=function(){
+                // json 키배열, 인덱스 배열 형태로 처리 
+                /*
+                const params= {
+                    pid :'bbb',
+                    age : 34,
+                    marriage : true
+                }*/
+
+                const params= {
+                    pid : document.querySelector("#pid").value,
+                    age : document.querySelector("#age").value,
+                    marriage : document.querySelector("#marriage").value
+                }
+
+                //consLog(params) //json은 객체
+                //json ->  문자열
+                const ttt = new URLSearchParams(params).toString()
+                consLog(ttt)        //pid=bbb&age=34&marriage=true
+
+               fetch(`/test2?${ttt}`,{
+                method:'GET'
+               })     
+               .then(answer=> answer.text())
+               .then(data=>consLog(data))
+               .catch(err=>console.log('에러 : ',err.message))
+            }
+
+
+            document.querySelector("#postGo").onclick=function(){
+
+                // json 키배열, 인덱스 배열 형태로 처리 
+                const params= {
+                    pid : document.querySelector("#pid").value,
+                    age : document.querySelector("#age").value,
+                    marriage : document.querySelector("#marriage").value
+                }
+
+                let ttt = JSON.stringify(params) // json -> 문자열
+                                    //  `{"pid":"ccc","age":"26","marriage":"false"}`
+                //console.log('ttt',ttt)
+                consLog(params)     //object
+                consLog(ttt)        // String
+
+               fetch(`/test3`,{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'  //post 데이터 전송타입 설정 - json
+                },
+                body:ttt       //POST 에서 ttt 전송(json 형태의 문자열전송)
+               })     
+               .then(answer=> answer.text())
+               .then(data=>consLog(data))
+               .catch(err=>console.log('에러 : ',err.message))
+            }
+
+            document.querySelector("#frmGo").onclick=function(){
+
+                // frm  요소 선택
+               const frm = document.frm
+
+               //FormData 객체 생성 --> frm 요소를 이용하여 FormData 객체 생성
+               const data = new FormData(frm)
+
+                console.log(data)     //object
+                consLog(data)        // object
+                //내용확인
+                for(const [kk,vv] of data.entries()){
+                    consLog(`${kk} , ${vv}`)
+                }
+
+                fetch(`/test4`,{
+                method:'POST',
+                // header 불필요 FormData 가 자동 생성
+                body:data
+               })     
+               .then(answer=> answer.text())
+               .then(data=>consLog(data))
+               .catch(err=>console.log('에러 : ',err.message))
+            }
+
+            // 'Content-Type' : 송신 - 필수(FormData 제외)
+            // 'Accept': 수신 - 생략가능
+            document.querySelector("#receiveJsonGo").onclick=function(){
+               fetch('/test5',{
+                method:'GET',
+                headers:{
+                    'Accept':'application/json'  //데이터 수신타입 설정 - json
+                                                // answer.json() 처리 하기 때문에 생략해도 무방
+                },
+               })     
+               .then(answer=> answer.json())  //json 형태로 받기 - object
+               .then(data=>{
+                    consLog(data)       //object
+                    console.log(data)
+                })
+               .catch(err=>console.log('에러 : ',err.message))
+            }
+        }
+    </script>
+    <style>
+        #cons{
+            width: 800px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>fetchHome</h1>
+    id <input type="text" id="pid"><br/>
+    나이 <input type="text" id="age"><br/>
+    결혼 <input type="text" id="marriage"><br/>
+    <input type="button" value="getGo" id="getGo">
+    <input type="button" value="queryGo" id="queryGo">
+    <input type="button" value="jsonGo" id="jsonGo">
+    <input type="button" value="postGo" id="postGo">
+
+    <form method="post" name="frm">
+        id <input type="text" name="pid"><br/>
+        이름 <input type="text" name="pname"><br/>
+        전화 <input type="text" name="tel"><br/>
+    </form>
+    <input type="button" value="frmGo" id="frmGo">
+    <input type="button" value="json수신" id="receiveJsonGo">
+    <div id="cons"></div>
+</body>
+</html>
