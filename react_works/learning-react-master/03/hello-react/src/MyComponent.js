@@ -23,6 +23,7 @@ class MyComponent extends Component {
   }
 }
 
+
 // MyComponent.defaultProps = {
 //   name: '기본 이름'
 // };
