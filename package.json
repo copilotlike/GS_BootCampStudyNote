@@ -3,6 +3,7 @@
     "create-react-app": "^5.1.0",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
-    "nunjucks": "^3.2.4"
+    "nunjucks": "^3.2.4",
+    "yarn": "^1.22.22"
   }
 }

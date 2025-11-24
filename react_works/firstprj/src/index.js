@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// import UseEffectCleanup from './hook/UseEffectCleanup';
 //import Comp1 from './comp/comp1'
 // import SC from './basic/StaticClass'
 // import Prop1 from './comp/prop1'
@@ -16,15 +17,17 @@ import ReactDOM from 'react-dom/client';
 // import ClassRef from './event/classRef'
 //import ClassBalloon from './event/classBalloon'
 //import LifePar from './event/lifePar'
-import LifeShoes from './event/lifeShoes';
-import reportWebVitals from './reportWebVitals';
+// import LifeShoes from './event/lifeShoes';
+// import reportWebVitals from './reportWebVitals';
+// import UseEffectGo from './hook/UseEffectGo';
+import ReactClock from './hook/reactClock/ReactClock';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
 
-   {/* <Comp1/> 
+    {/* <Comp1/> 
    <SC/>
    <Prop1/>
    <Prop2/>
@@ -41,12 +44,14 @@ root.render(
    <ClassBalloon/>
    <LifePar/>
    */}
-   
-   <LifeShoes/>
+    {/* <UseEffectGo /> */}
+    {/* <LifeShoes/> */}
+    {/* <UseEffectCleanup /> */}
+    <ReactClock />
   </>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();

@@ -9,6 +9,8 @@ class LifeShoes extends Component{
         {name:'프로스펙스'  , price: 60000  , cnt:4}
     ]
 
+    dataCa
+
     calc(){
         let tot = 0
         for (const ee of this.data) {
@@ -57,4 +59,3 @@ class SubShoes extends Component{
 }
 
 export default LifeShoes
-
