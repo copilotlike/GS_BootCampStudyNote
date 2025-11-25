@@ -43,7 +43,7 @@ section > .grad > .small{
     margin: 0 auto;
 }
 
-section > .needle{
+section > .niddle{
     position: absolute;
     width: 2px;
     height: 85px;
@@ -54,7 +54,7 @@ section > .needle{
     transform-origin: bottom center;
 }
 
-section > .needle:nth-of-type(2){
+section > .niddle:nth-of-type(2){
     
     width: 2px;
     height: 75px;
@@ -63,7 +63,7 @@ section > .needle:nth-of-type(2){
     top:25px;  
 }
 
-section > .needle:nth-of-type(1){
+section > .niddle:nth-of-type(1){
     
     width: 4px;
     height: 65px;

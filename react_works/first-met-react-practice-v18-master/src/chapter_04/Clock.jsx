@@ -1,6 +1,5 @@
-import React from "react";
-
-function Clock(props) {
+// Clock.jsx
+function Clock() {
     return (
         <div>
             <h1>안녕, 리액트!</h1>

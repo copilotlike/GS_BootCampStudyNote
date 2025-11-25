@@ -21,7 +21,7 @@ function UseEffectCleanup(props) {
       console.log('cleanup 실행')
       clearInterval(timer)
     }
-  },[])
+  },)
 
   return (
     <div>

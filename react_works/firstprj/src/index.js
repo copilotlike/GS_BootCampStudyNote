@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Viewconf from './hook/praticeViewConfig/Viewconf';
+// import ContextGo from './hook/ContextGo';
 // import UseEffectCleanup from './hook/UseEffectCleanup';
 //import Comp1 from './comp/comp1'
 // import SC from './basic/StaticClass'
@@ -20,7 +22,7 @@ import ReactDOM from 'react-dom/client';
 // import LifeShoes from './event/lifeShoes';
 // import reportWebVitals from './reportWebVitals';
 // import UseEffectGo from './hook/UseEffectGo';
-import ReactClock from './hook/reactClock/ReactClock';
+// import ReactClock from './hook/UseEffectGo';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -47,7 +49,9 @@ root.render(
     {/* <UseEffectGo /> */}
     {/* <LifeShoes/> */}
     {/* <UseEffectCleanup /> */}
-    <ReactClock />
+    {/* <ReactClock /> */}
+    {/* <ContextGo /> */}
+    <Viewconf />
   </>
 );
 
