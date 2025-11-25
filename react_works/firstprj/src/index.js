@@ -1,29 +1,9 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import Viewconf from './hook/praticeViewConfig/Viewconf';
-// import ContextGo from './hook/ContextGo';
-// import UseEffectCleanup from './hook/UseEffectCleanup';
-//import Comp1 from './comp/comp1'
-// import SC from './basic/StaticClass'
-// import Prop1 from './comp/prop1'
-// import Prop2 from './comp/prop2'
-// import Prop3 from './comp/prop3'
-// import Prop4 from './comp/prop4'
-//import Prop5 from './comp/prop5'
-//import UpdateGo from './comp/updateGo'
-//import UpdateClassGo from './comp/updateClassGo'
-//import UpdateStud from './comp/updateStud'
-// import EventGo from './event/eventGo'
-// import EventState from './event/eventState'
-//import EventBalloon from './event/eventBalloon'
-// import ClassRef from './event/classRef'
-//import ClassBalloon from './event/classBalloon'
-//import LifePar from './event/lifePar'
-// import LifeShoes from './event/lifeShoes';
-// import reportWebVitals from './reportWebVitals';
-// import UseEffectGo from './hook/UseEffectGo';
-// import ReactClock from './hook/UseEffectGo';
 
+// import UseReduceGo1 from './hook/UseReduces/UseReduceGo1';
+// import UseReduceGo2 from './hook/UseReduces/UseReduceGo2';
+// import UseReduceGo3 from './hook/UseReduces/UseReduceGo3';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -51,7 +31,12 @@ root.render(
     {/* <UseEffectCleanup /> */}
     {/* <ReactClock /> */}
     {/* <ContextGo /> */}
-    <Viewconf />
+    {/* <Viewconf /> */}
+    <StrictMode>
+      {/* <UseReduceGo1/>
+      <UseReduceGo2/>
+      <UseReduceGo3/> */}
+    </StrictMode>
   </>
 );
 
