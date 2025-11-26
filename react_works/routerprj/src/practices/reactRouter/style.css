@@ -1,0 +1,22 @@
+#root > div:first-child {
+  align-items: center;
+  /* padding: 0 auto; */
+  width: 600px;
+  height: 25px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+nav{
+  width: 100%;
+  border: 1px solid black;
+}
+td>a {
+  width: 100px;
+  border: 1px solid black;
+  display:inline-block;
+  /* justify-content: space-evenly; */
+}
+td {
+  justify-content: space-evenly;
+}

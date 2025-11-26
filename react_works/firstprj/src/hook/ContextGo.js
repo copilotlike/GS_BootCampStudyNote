@@ -1,10 +1,4 @@
-
 import React, { Children, createContext, useContext, useState } from 'react';
-
-
-//1. Context API : 컴포넌트 트리 안에서 전역적으로 데이터를 공유할 수 있게 해주는 리액트의 기능입니다.
-//2. 주로 테마, 인증 정보, 다국어 설정 등과 같은 전역 상태 관리를 위해 사용됩니다.
-//3. Context를 사용하면 props를 일일이 전달하지 않고도 여러 컴포넌트에서 데이터를 쉽게 접근할 수 있습니다.
 
 //1. Context 생성
 const MyContext = createContext()
