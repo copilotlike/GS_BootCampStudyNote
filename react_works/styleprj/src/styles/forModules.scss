@@ -1,0 +1,82 @@
+.aaa {
+  background-color: #ff0;
+  margin: 5px;
+
+  @for $i from 1 through 3 {
+    &:nth-of-type(#{$i}) {
+      width: 40px * $i;
+    }
+  }
+}
+.bbb {
+  background-color: orange;
+  margin: 5px;
+
+  @for $i from 1 to 2 {
+    &:nth-of-type(#{$i}) {
+      width: 40px * $i;
+    }
+  }
+}
+
+$arr1: #f00, #fa0, #ff0, #0f0;
+
+$no: 1;
+.ccc {
+  width: 100px;
+  height: 20px;
+  margin: 5px;
+
+  @each $e in $arr1 {
+    &:nth-of-type(#{$no}) {
+      background-color: $e;
+    }
+    $no: $no + 1;
+  }
+}
+
+//연관배열
+$arr2: (
+  qqq: #f00,
+  eee: #fa0,
+  rrr: #ff0,
+  yyy: #0f0,
+);
+@each $k, $e in $arr2 {
+  .#{$k} {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    font-size: $e;
+    background-color: $e;
+  }
+}
+
+$zz: (tt, 2rem);
+$xx: (yy, 3rem);
+$cc: (uu, 1.5rem);
+
+@each $k, $e in $zz, $xx, $cc {
+  .#{$k} {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    font-size: $e;
+  }
+}
+
+
+$no : 10;
+
+@while $no < 100 {
+  .dd_#{$no}{
+    width: 100px+$no;
+    height: 50px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    font-size: $no;
+  }
+  $no:$no+10;
+}

@@ -1,0 +1,48 @@
+@mixin aaa {
+  // 직접호출안함
+  color: #00f;
+  font: {
+    size: 2rem;
+    style: italic;
+  }
+  div {
+    border: 1px solid #333;
+  }
+}
+
+.bbb {
+  @include aaa;
+}
+
+@mixin fff($p1, $p2: 2rem) {
+  color: $p1;
+  font {
+    size: $p2;
+  }
+}
+.ggg {
+  @include fff(#f00, 1.5rem);
+}
+.hhh {
+  @include fff(#0f0, 3rem);
+}
+
+@mixin fff_3($p1, $p2...) {
+  width: 100px;
+  height: 10px;
+  margin: 5px;
+  color: $p1;
+
+  $no: 1;
+
+  @each $p in $p2 {
+    &:nth-child(#{$no}) {
+      border: 3px solid $p;
+    }
+    $no: $no + 1;
+  }
+}
+
+.iii {
+  @include fff_3(#00f, #f00, #0f0);
+}

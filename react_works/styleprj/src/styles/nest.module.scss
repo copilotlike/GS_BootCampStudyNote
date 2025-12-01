@@ -1,0 +1,53 @@
+section {
+  width: 100vw;
+  background-color: #ffa;
+  div {
+    //section div
+    padding: 20px;
+    border: 2px solid #f00;
+  }
+}
+
+.aaa {
+  width: 60vw;
+  height: 100px;
+  background-color: #faf;
+  margin: 20px;
+  span {
+    color: #0f0;
+  }
+  .bbb {
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+  }
+  &.ccc {
+    font-style: italic;
+  }
+
+  .ccc {
+    font-size: 2rem;
+  }
+}
+
+.ddd {
+  width: 60vh;
+  height: 30px;
+  border: 1px solid #ccc;
+  background-color: #0ff;
+  &:hover {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  @at-root .eee {
+    color: #0f0;
+  }
+  .fff {
+      color: #fa0
+  }
+  @at-root #{&}ggg{ 
+      color: #0f0;
+  }
+}

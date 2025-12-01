@@ -24,8 +24,8 @@ import ReactDOM from 'react-dom/client';
 // import UseReducer2 from './hook/UseReducer2';
 // import UseReducer3 from './hook/UseReducer3';
 // import UseReduTemp from './hook/UseReduTemp';
-// import UseMemoGo from './hook/UseMemoGo';
-import UseCallBackGo from './hook/UseCallBackGo';
+import UseMemoGo from './hook/UseMemos/UseMemoGo';
+// import UseCallBackGo from './hook/UseCallBackGo';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -56,11 +56,11 @@ root.render(
   <UseReducerGo/>
   <UseReducer2/>
   <UseReducer3/>
-  <UseReduTemp/>
+  <UseReduTemp/> */}
   <UseMemoGo/>
-  */}
+ 
    
-  <UseCallBackGo/>
+  {/* <UseCallBackGo/> */}
   
   </>
 );

@@ -1,52 +1,18 @@
-import React from 'react';
+import { useRef } from "react";
 
-function Comment(props) {
-    return (
-        <div className='comment'>
-            <Userinfo user={props.author}/>
+function App() {
+  const inputRef = useRef(null);
 
-            <div className='comment-text'>
-                {props.text}
-            </div>
-            <div className='comment-date'>
-                {FormData(props.date)}
-            </div>
-        </div>
-    );
-}
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
 
-export default Comment;
-
-
-// avatar 추출
-// <img className='avatar'
-//     src={props.author.avatarUrl}
-//     alt={props.author.name}
-// />
-function Avatar(props) {
-    return (
-        <img className='avatar'
-            src={props.user.avatarUrl}
-            alt={props.user.name}
-        />
-    )
-}
-
-//userinfo 추출
-/* <div className='user-info'>
-    <Avatar user={props.author} />
-    <div className='user-info-name'>
-        {props.author.name}
+  return (
+    <div>
+      <input ref={inputRef} placeholder="여기를 클릭 없이 포커스!" />
+      <button onClick={focusInput}>포커스 주기</button>
     </div>
-</div> */
-
-function Userinfo(props) {
-    return (
-        <div className='user-info'>
-            <Avatar user={props.user} />
-            <div className='user-info-name'>
-                {props.user.name}
-            </div>
-        </div>
-    );  
+  );
 }
+
+export default App;

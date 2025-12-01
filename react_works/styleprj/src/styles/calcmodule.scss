@@ -1,0 +1,98 @@
+$ww: 100px;
+
+div {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+
+.aaa {
+  width: $ww + 100px;
+  height: $ww - 30px;
+  // height: 100px;
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+
+.bbb {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #ccc;
+  margin: 10px;
+
+  @if ($ww > 50) {
+    background-color: red;
+  } @else if ($ww >= 80) {
+    background-color: orange;
+  } @else if ($ww >= 60) {
+    background-color: yellow;
+  } @else {
+    background-color: #0f0;
+  }
+}
+
+$ch1: false;
+$ch2: true;
+
+.ccc {
+  @if ($ch1 and $ch2) {
+    background-color: red;
+  } @else {
+    background-color: #0f0;
+  }
+
+  @if ($ch1 or $ch2) {
+    font-size: 2rem;
+  } @else {
+    font-size: 1rem;
+  }
+
+  @if (not $ch1) {
+    font-size: italic;
+  } @else {
+    font-size: normal;
+  }
+}
+
+$ppp: "box";
+.#{$ppp}_1 {
+  //#{} 변수를 문자열로 사용
+  color: #f00;
+}
+.#{$ppp}_2 {
+  //#{} 변수를 문자열로 사용
+  color: #0f0;
+}
+
+$arr1: #f00, #fa0, #ff0, #0f0;
+
+.ddd {
+  // background-color: $arr[0];
+  background-color: nth($arr1, 3);
+}
+
+.eee {
+  background-color: nth($arr1, 3);
+}
+
+.ddd {
+  background-color: nth($arr1, 1);
+}
+.eee {
+  background-color: nth($arr1, 3);
+}
+
+$arr2: (
+  "qq": #f00,
+  "ee": #0f0,
+  "rr": #fa0,
+);
+
+.fff {
+  background-color: map-get($arr2, "ee");
+}
+
+.ggg {
+  background-color: map-get($arr2, "rr");
+}

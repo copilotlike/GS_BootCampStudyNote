@@ -1,0 +1,31 @@
+@function fn1($aa:4px, $bb:1px){
+    @return ($aa *100/ $bb);
+}
+@function fn2($aa:4px, $bb:1px){
+    @if $bb <=0 {
+      $bb : 1;
+    }
+    @return ($aa *100/ $bb);
+}
+
+div{
+  margin: 20px;
+  border: 1px solid red;
+}
+
+.aaa{
+  width: fn1(1px, 2);
+  background-color: #ff0;  
+}
+.ccc{
+  width: fn2(1px,0);
+  background-color: blue;
+}
+.ddd{
+  width: fn2(1px,0);
+  background-color: blue;
+}
+.eee{
+  width: fn2(1px,0);
+  background-color: blue;
+}

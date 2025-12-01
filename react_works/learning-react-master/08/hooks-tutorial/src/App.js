@@ -1,8 +1,9 @@
 import React from 'react';
-import Average from './Average';
+// import Average from './Average';
+import UseCallBackStudy from './useCallBackStudy'
 
 const App = () => {
-  return <Average />;
+  return <UseCallBackStudy />;
 };
 
 export default App;

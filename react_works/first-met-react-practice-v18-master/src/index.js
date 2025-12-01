@@ -15,13 +15,13 @@ import './index.css';
 // import ProfileCard from './chapter_13/ProfileCard';
 // import DarkOrLight from './chapter_14/DarkOrLight';
 // import Blocks from './chapter_15/Blocks';
-
+import App from './test';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // setInterval(()=>{
 
 root.render(
   <StrictMode>
-    <UseCallBack />
+    <App />
   </StrictMode>
 );
 // },1000)
