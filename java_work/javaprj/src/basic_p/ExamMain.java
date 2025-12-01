@@ -3,7 +3,7 @@ package basic_p;
 public class ExamMain {
 
     public static void main(String[] args) {
-	// TODO 자동 생성된 메소드 스텁
+	// TODO 자동 생성된 메소드 스텁]
 
     }
 
