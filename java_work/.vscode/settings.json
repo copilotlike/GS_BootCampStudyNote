@@ -1,0 +1,7 @@
+{
+  "java.format.settings.url": ".vscode/java-formatter.xml",
+  "java.project.explorer.showNonJavaResources": true,
+  "java.dependency.packagePresentation": "hierarchical",
+  "java.dependency.showMembers": true,
+  "java.debug.settings.onBuildFailureProceed": true
+}

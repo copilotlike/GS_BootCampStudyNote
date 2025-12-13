@@ -17,13 +17,9 @@ interface Husband{
 	void missionComplete(String job);
 }
 
-
-
 interface Uncle50 extends Teacher, Daddy, Husband{
 	
 }
-
-
 
 class Uncle50Impl implements Uncle50{
 	String name;
@@ -86,7 +82,7 @@ public class Uncle50Main {
 
 }
 
-
+// RestaurantMain
 ////식당을 구현해주세요
 //카운터 - 계산(몇번테이블에 얼마를), 인사
 //홀 - 음식나르기(몇번테이블에 뭐를), 인사

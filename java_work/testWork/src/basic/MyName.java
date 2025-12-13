@@ -11,7 +11,7 @@ public class MyName {
 		System.out.println("|         ●     ●         | |");
 		System.out.println("|            ▽            | /");
 		System.out.println("+-------------------------+");
-		
+
 		System.out.println("  +------------------------------------------------------+");
 		System.out.println(" /\t\t\t\t\t\t\t\t   /|");
 		System.out.println("+-----------------------------------------------------+ |");
@@ -22,7 +22,7 @@ public class MyName {
 		System.out.println("|\t\t\t\t\t\t\t\t  | +");
 		System.out.println("|\t\t\t\t\t\t\t\t  |/");
 		System.out.println("+-------------------------------------------------------+");
-		 
+
 	}
-	
+
 }

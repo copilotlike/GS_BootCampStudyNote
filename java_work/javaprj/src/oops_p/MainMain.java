@@ -3,13 +3,12 @@ package oops_p;
 public class MainMain {
 
 	public static void main(String[] args) {
-		// TODO 자동 생성된 메소드 스텁
-		System.out.println("MainMain 시작 ===");
+		System.out.println("MainMain 시작----");
 		
-		for (int i = 0; i < args.length; i++) {
-			System.out.println(i);
+		for (String ttt : args) {
+			System.out.println(ttt);
 		}
-		System.out.println("MainMain 끝 ===");
+		System.out.println("MainMain 끝----");
 
 	}
 

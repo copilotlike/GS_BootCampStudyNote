@@ -1,5 +1,7 @@
 package array_p;
 
+import java.util.Arrays;
+
 public class ExamMain {
 
 	public static void main(String[] args) {
@@ -46,9 +48,6 @@ public class ExamMain {
 		  	{ 0,    0}		- ,"무천도사"
 		 }
 		 * */
-//		int c=0;
-//		int b=c-0;
-		
 		
 		String [] kind = {"일반","예능"};
 		double [] rate = {0.05 , 0.1, 0.15, 0.7};
@@ -57,8 +56,8 @@ public class ExamMain {
 		for (int me = 0; me < pname.length; me++) {
 			res1[me][0] = kind[jum[me].length-3];
 			
-//			res2[me][0] = 0;
-//			res2[me][1] = 0;
+			res2[me][0] = 0;
+			res2[me][1] = 0;
 			
 			for (int j = 0; j < jum[me].length; j++) {
 				res2[me][0] += jum[me][j];
@@ -75,7 +74,7 @@ public class ExamMain {
 //			System.out.println(me+","+pname[me]+","+Arrays.toString(jum[me])
 //			+","+Arrays.toString(res1[me])+","+Arrays.toString(res2[me]));
 			
-	
+			
 		}
 		
 		

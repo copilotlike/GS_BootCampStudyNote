@@ -1,40 +1,42 @@
 package pac_2;
 
 public class CCC {
-	public String a = "p2.CCC.a";
-	public String b = "p2.CCC.b";
-	
-	public void mm1() {
-		System.out.println("p2.CCC.mm1()실행");
+
+	String a = "p2.CCC.a";
+	void mm1() {
+		System.out.println("p2.CCC.mm1() 실행");
 	}
+	
+	public String b = "p2.CCC.public_b";
 	public void mm2() {
-		System.out.println("p2.CCC.mm1()실행");
+		System.out.println("p2.CCC.public_mm2() 실행");
 	}
 }
-// public은 클래스 안에서 하나만 있어야함.
 
-//public class DDD {
-//	String a = "p2.DDD.a";
-//	public String b = "p2.DDD.b";
-//	
-//	void mm1() {
-//		System.out.println("p2.DDD.mm1()실행");
-//	}
-//	public void mm2() {
-//		System.out.println("p2.DDD.mm1()실행");
-//	}
-//}
+/*
+public class DDD {
 
-//class 여러개 가능
+	String a = "p2.DDD.a";
+	void mm1() {
+		System.out.println("p2.DDD.mm1() 실행");
+	}
+	
+	public String b = "p2.DDD.public_b";
+	public void mm2() {
+		System.out.println("p2.DDD.public_mm2() 실행");
+	}
+}
+*/
 
 class EEE {
+
 	String a = "p2.EEE.a";
-	public String b = "p2.EEE.b";
-	
 	void mm1() {
-		System.out.println("p2.EEE.mm1()실행");
+		System.out.println("p2.EEE.mm1() 실행");
 	}
+	
+	public String b = "p2.EEE.public_b";
 	public void mm2() {
-		System.out.println("p2.EEE.mm1()실행");
+		System.out.println("p2.EEE.public_mm2() 실행");
 	}
 }
