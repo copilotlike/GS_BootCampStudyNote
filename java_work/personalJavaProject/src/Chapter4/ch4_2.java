@@ -1,4 +1,6 @@
-public class SwitchExpression {
+package Chapter4;
+
+public class ch4_2 {
   public static void main(String[] args) {
     String grade = "B";
 
@@ -10,5 +12,6 @@ public class SwitchExpression {
       }
       default -> 60;
     };
+    System.out.println(score1);
   }
 }
