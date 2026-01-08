@@ -1,0 +1,833 @@
+{
+  // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+  // 기존 특성에 대한 설명을 보려면 가리킵니다.
+  // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "TCPServerMain",
+      "request": "launch",
+      "mainClass": "net_p.TCPServerMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "ArrayCombineSortMain",
+      "request": "launch",
+      "mainClass": "array_p.ArrayCombineSortMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ArrayControlMain",
+      "request": "launch",
+      "mainClass": "array_p.ArrayControlMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ArrayEvenMain",
+      "request": "launch",
+      "mainClass": "array_p.ArrayEvenMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ArrayMain",
+      "request": "launch",
+      "mainClass": "array_p.ArrayMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ExamMain",
+      "request": "launch",
+      "mainClass": "array_p.ExamMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "MulArrayMain",
+      "request": "launch",
+      "mainClass": "array_p.MulArrayMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ShapeMain",
+      "request": "launch",
+      "mainClass": "array_p.ShapeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "BoxMain",
+      "request": "launch",
+      "mainClass": "basic_p.BoxMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "CalcMain",
+      "request": "launch",
+      "mainClass": "basic_p.CalcMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "CastingMain",
+      "request": "launch",
+      "mainClass": "basic_p.CastingMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "CoffeeMain",
+      "request": "launch",
+      "mainClass": "basic_p.CoffeeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "DebugMain",
+      "request": "launch",
+      "mainClass": "basic_p.DebugMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "EnumChinaMain",
+      "request": "launch",
+      "mainClass": "basic_p.EnumChinaMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "EnumMain",
+      "request": "launch",
+      "mainClass": "basic_p.EnumMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "EnumSawonMain",
+      "request": "launch",
+      "mainClass": "basic_p.EnumSawonMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ExamMain(1)",
+      "request": "launch",
+      "mainClass": "basic_p.ExamMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "FirstMain",
+      "request": "launch",
+      "mainClass": "basic_p.FirstMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "SecMain",
+      "request": "launch",
+      "mainClass": "basic_p.SecMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ThirdMain",
+      "request": "launch",
+      "mainClass": "basic_p.ThirdMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "VarMain",
+      "request": "launch",
+      "mainClass": "basic_p.VarMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ArrayListMain",
+      "request": "launch",
+      "mainClass": "coll_p.ArrayListMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ArrayListNumMain",
+      "request": "launch",
+      "mainClass": "coll_p.ArrayListNumMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "LinkedListMain",
+      "request": "launch",
+      "mainClass": "coll_p.LinkedListMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "SetMain",
+      "request": "launch",
+      "mainClass": "coll_p.SetMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "CoffeeOrderMain",
+      "request": "launch",
+      "mainClass": "control_p.CoffeeOrderMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ForMain",
+      "request": "launch",
+      "mainClass": "control_p.ForMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "IfMain",
+      "request": "launch",
+      "mainClass": "control_p.IfMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ScannerMain",
+      "request": "launch",
+      "mainClass": "control_p.ScannerMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "SwitchMain",
+      "request": "launch",
+      "mainClass": "control_p.SwitchMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "WhileCoffeeMain",
+      "request": "launch",
+      "mainClass": "control_p.WhileCoffeeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "WhileMain",
+      "request": "launch",
+      "mainClass": "control_p.WhileMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "AbstractMain",
+      "request": "launch",
+      "mainClass": "dynamic_p.AbstractMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ExLifeCycleMain",
+      "request": "launch",
+      "mainClass": "dynamic_p.ExLifeCycleMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ExtendsExamMain",
+      "request": "launch",
+      "mainClass": "dynamic_p.ExtendsExamMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ExtendsMain",
+      "request": "launch",
+      "mainClass": "dynamic_p.ExtendsMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "OverCarMain",
+      "request": "launch",
+      "mainClass": "dynamic_p.OverCarMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "OverExamMain",
+      "request": "launch",
+      "mainClass": "dynamic_p.OverExamMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "OverMain",
+      "request": "launch",
+      "mainClass": "dynamic_p.OverMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ExcepMain",
+      "request": "launch",
+      "mainClass": "excep_p.ExcepMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ReThrowLogin6",
+      "request": "launch",
+      "mainClass": "excep_p.ReThrowLogin6",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ReThrowMain",
+      "request": "launch",
+      "mainClass": "excep_p.ReThrowMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ThreeSixNine",
+      "request": "launch",
+      "mainClass": "excep_p.ThreeSixNine",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ThreeSixNine100",
+      "request": "launch",
+      "mainClass": "excep_p.ThreeSixNine100",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ThreeSixNineNumber",
+      "request": "launch",
+      "mainClass": "excep_p.ThreeSixNineNumber",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ThrowLogin5",
+      "request": "launch",
+      "mainClass": "excep_p.ThrowLogin5",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ThrowLoginMain",
+      "request": "launch",
+      "mainClass": "excep_p.ThrowLoginMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ThrowMain",
+      "request": "launch",
+      "mainClass": "excep_p.ThrowMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "UserExcepMain",
+      "request": "launch",
+      "mainClass": "excep_p.UserExcepMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "UserThrowLogin",
+      "request": "launch",
+      "mainClass": "excep_p.UserThrowLogin",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "DefaultMain",
+      "request": "launch",
+      "mainClass": "inter_p.DefaultMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "InterfaceMain",
+      "request": "launch",
+      "mainClass": "inter_p.InterfaceMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "RestaurantMain",
+      "request": "launch",
+      "mainClass": "inter_p.RestaurantMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "SCVMain",
+      "request": "launch",
+      "mainClass": "inter_p.SCVMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "Uncle50Main",
+      "request": "launch",
+      "mainClass": "inter_p.Uncle50Main",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "PhoneMain",
+      "request": "launch",
+      "mainClass": "korea_p.PhoneMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ChamChamCham",
+      "request": "launch",
+      "mainClass": "lang_p.ChamChamCham",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ClassBoardMain",
+      "request": "launch",
+      "mainClass": "lang_p.ClassBoardMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ClassClassMain",
+      "request": "launch",
+      "mainClass": "lang_p.ClassClassMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ClassShapeMain",
+      "request": "launch",
+      "mainClass": "lang_p.ClassShapeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "MathMain",
+      "request": "launch",
+      "mainClass": "lang_p.MathMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ObjectMain",
+      "request": "launch",
+      "mainClass": "lang_p.ObjectMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ObjectShapeMain",
+      "request": "launch",
+      "mainClass": "lang_p.ObjectShapeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "RSPMain",
+      "request": "launch",
+      "mainClass": "lang_p.RSPMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "StringJuminMain",
+      "request": "launch",
+      "mainClass": "lang_p.StringJuminMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "StringMain",
+      "request": "launch",
+      "mainClass": "lang_p.StringMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "StringMethodMain",
+      "request": "launch",
+      "mainClass": "lang_p.StringMethodMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "StringTokBuildMain",
+      "request": "launch",
+      "mainClass": "lang_p.StringTokBuildMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "WrapperMain",
+      "request": "launch",
+      "mainClass": "lang_p.WrapperMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "WrapperMemberMain",
+      "request": "launch",
+      "mainClass": "lang_p.WrapperMemberMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "AbsSwimMain",
+      "request": "launch",
+      "mainClass": "oops_p.AbsSwimMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "CapShapeMain",
+      "request": "launch",
+      "mainClass": "oops_p.CapShapeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ClassExamMain",
+      "request": "launch",
+      "mainClass": "oops_p.ClassExamMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ClassMain",
+      "request": "launch",
+      "mainClass": "oops_p.ClassMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ClassShapeMain(1)",
+      "request": "launch",
+      "mainClass": "oops_p.ClassShapeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ConstExamMain",
+      "request": "launch",
+      "mainClass": "oops_p.ConstExamMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ConstShapeMain",
+      "request": "launch",
+      "mainClass": "oops_p.ConstShapeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ConstructorMain",
+      "request": "launch",
+      "mainClass": "oops_p.ConstructorMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "DragonMoneyMain",
+      "request": "launch",
+      "mainClass": "oops_p.DragonMoneyMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "FSAMain",
+      "request": "launch",
+      "mainClass": "oops_p.FSAMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "MainMain",
+      "request": "launch",
+      "mainClass": "oops_p.MainMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "MethodMain",
+      "request": "launch",
+      "mainClass": "oops_p.MethodMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "NestedAnnoMain",
+      "request": "launch",
+      "mainClass": "oops_p.NestedAnnoMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "NestedBaseBallMain",
+      "request": "launch",
+      "mainClass": "oops_p.NestedBaseBallMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "NestedCoffeeMain",
+      "request": "launch",
+      "mainClass": "oops_p.NestedCoffeeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "NestedInterfaceMain",
+      "request": "launch",
+      "mainClass": "oops_p.NestedInterfaceMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "NestedLocalMain",
+      "request": "launch",
+      "mainClass": "oops_p.NestedLocalMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "NestedMain",
+      "request": "launch",
+      "mainClass": "oops_p.NestedMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "NestedStaticMain",
+      "request": "launch",
+      "mainClass": "oops_p.NestedStaticMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "OverCoffeeMain",
+      "request": "launch",
+      "mainClass": "oops_p.OverCoffeeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "OverSawonMain",
+      "request": "launch",
+      "mainClass": "oops_p.OverSawonMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "OverloadingMain",
+      "request": "launch",
+      "mainClass": "oops_p.OverloadingMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "SIngleToneMain",
+      "request": "launch",
+      "mainClass": "oops_p.SIngleToneMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "SelfCallMain",
+      "request": "launch",
+      "mainClass": "oops_p.SelfCallMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "SingleRestRoomMain",
+      "request": "launch",
+      "mainClass": "oops_p.SingleRestRoomMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "SingleRestaurantMain",
+      "request": "launch",
+      "mainClass": "oops_p.SingleRestaurantMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "StaticMain",
+      "request": "launch",
+      "mainClass": "oops_p.StaticMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "CapsuleMain",
+      "request": "launch",
+      "mainClass": "pac_1.CapsuleMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "PacMain",
+      "request": "launch",
+      "mainClass": "pac_1.PacMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "DecimalFormatMain",
+      "request": "launch",
+      "mainClass": "text_p.DecimalFormatMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "CalendarDiaryMain",
+      "request": "launch",
+      "mainClass": "util_p.CalendarDiaryMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "CalendarMain",
+      "request": "launch",
+      "mainClass": "util_p.CalendarMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "LocalDateBetweenMain",
+      "request": "launch",
+      "mainClass": "util_p.LocalDateBetweenMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "LocalDateJuminMain",
+      "request": "launch",
+      "mainClass": "util_p.LocalDateJuminMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "LocalDateTimeMain",
+      "request": "launch",
+      "mainClass": "util_p.LocalDateTimeMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "RegexJoinMain",
+      "request": "launch",
+      "mainClass": "util_p.RegexJoinMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "RegexMain",
+      "request": "launch",
+      "mainClass": "util_p.RegexMain",
+      "projectName": "javaprj"
+    },
+    {
+      "type": "java",
+      "name": "ch4_2",
+      "request": "launch",
+      "mainClass": "Chapter4.ch4_2",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "ch4_3",
+      "request": "launch",
+      "mainClass": "Chapter4.ch4_3",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "ch4_4",
+      "request": "launch",
+      "mainClass": "Chapter4.ch4_4",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "ch4_5",
+      "request": "launch",
+      "mainClass": "Chapter4.ch4_5",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "ch4_6",
+      "request": "launch",
+      "mainClass": "Chapter4.ch4_6",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "ch4_7",
+      "request": "launch",
+      "mainClass": "Chapter4.ch4_7",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "ch5_7",
+      "request": "launch",
+      "mainClass": "Chapter5.ch5_7",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "ch5_8",
+      "request": "launch",
+      "mainClass": "Chapter5.ch5_8",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "ch5_9",
+      "request": "launch",
+      "mainClass": "Chapter5.ch5_9",
+      "projectName": "personalJavaProject"
+    },
+    {
+      "type": "java",
+      "name": "MyName",
+      "request": "launch",
+      "mainClass": "basic.MyName",
+      "projectName": "testWork"
+    }
+  ]
+}
